@@ -1,0 +1,22 @@
+<h2> Departments </h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Department_Id</th>
+      <th scope="col">Department_Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Manager_Id</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let department of derpartments">
+      <th scope="row">{{ department.id }}</th>
+      <td>{{ department.name }}</td>
+      <td>{{ department.location }}</td>
+      <td>{{ department.menId }}</td>
+
+    </tr>
+  </tbody>
+</table>
