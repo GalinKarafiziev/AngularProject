@@ -1,0 +1,21 @@
+h2{
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin-left:15px;
+	font-family:"Times New Roman";
+	font-style: oblique;
+	font-size: 40px;
+
+}
+.table{
+	width:70%;
+	height:200px;
+	border:solid;
+	margin: 15px;
+	margin-top: 10px;
+}
+th, td {
+    padding: 7px;
+    font-size: 15px;
+    text-align: center;
+}
