@@ -2,19 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { ToDoComponent } from './to-do/to-do.component';
+import { TodoService } from './to-do/to-do.service';
+import { ToDoDetailComponent } from './to-do-detail/to-do-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    ToDoComponent,
+    ToDoDetailComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
