@@ -12,6 +12,8 @@ import { TodoService } from './to-do/to-do.service';
 
 import { ToDoDetailComponent } from './to-do-detail/to-do-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
    imports: [
@@ -25,7 +27,9 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     DepartmentsComponent,
     ToDoComponent,
-    ToDoDetailComponent
+    ToDoDetailComponent,
+    EmployeeDetailsComponent,
+    AddEmployeeComponent
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

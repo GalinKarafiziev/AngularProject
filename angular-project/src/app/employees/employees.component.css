@@ -8,14 +8,41 @@ h2{
 
 }
 .table{
-	width:70%;
+	width:90%;
 	height:200px;
 	border:solid;
 	margin: 15px;
 	margin-top: 10px;
+	
 }
 th, td {
     padding: 7px;
     font-size: 15px;
     text-align: center;
+}
+.addemployee{
+	text-decoration: none;
+	padding: 5px;
+	font-size: 16px;
+	background-color: black;
+	border-radius: 5px;
+	color: white;
+	float: right;
+	margin-right: 95px;
+}
+.delete{
+	border-radius: 5px;
+	background-color: black;
+	color:white;
+}
+.link{
+	font-style: oblique;
+	
+}
+.info{
+	margin-left: 20px;
+	font-style: oblique;
+}
+.container{
+	margin-left: 100px;
 }
