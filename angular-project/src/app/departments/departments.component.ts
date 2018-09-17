@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Departments } from '../departments';
+
+import { Department } from '../department';
+import { DepartmentService } from '../department.service';
 @Component({
   selector: 'app-departments',
   templateUrl: './departments.component.html',
@@ -7,11 +10,20 @@ import { Departments } from '../departments';
 })
 export class DepartmentsComponent implements OnInit {
 
-  derpartments = Departments;
+  departments: Department[];
 
-  constructor() { }
+  constructor(private departmentService: DepartmentService) { }
 
   ngOnInit() {
+    this.getDepartments();
   }
 
+  getDepartments(): void {
+    this.departmentService.getDepartments().
+    subscribe(departments => this.departments = departments);
+  }
+  delete(department: Department): void {
+    this.departments = this.departments.filter(d => d !== department);
+    this.departmentService.deleteDepartment(department);
+  }
 }

@@ -14,6 +14,9 @@ import { ToDoDetailComponent } from './to-do-detail/to-do-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+
 
 @NgModule({
    imports: [
@@ -29,7 +32,9 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     ToDoComponent,
     ToDoDetailComponent,
     EmployeeDetailsComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    DepartmentDetailComponent,
+    AddDepartmentComponent
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
