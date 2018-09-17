@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Task</th>
+    </tr>
+  </thead>
+<tr *ngFor = "let todo of todos" [class.selected]="todo === selectedTask"
+(click)="onSelect(todo)">
+  <td>
+    <span>{{todo.id}}</span>
+  </td>
+  <td><span>{{todo.name}}</span>
+  </td>
+  <td><span>{{todo.task}}</span>
+  </td>
+</tr>
+</table>
+
+<br>
+<todetail [todo]="selectedTask"></todetail>
