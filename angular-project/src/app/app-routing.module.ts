@@ -18,7 +18,7 @@ const routes: Routes = [
 
   { path: 'todo', component: ToDoComponent },
   
-  {path: 'add',component: AddDepartmentComponent},
+  {path: 'addDept',component: AddDepartmentComponent},
   { path: 'departments', component: DepartmentsComponent },
   {path: 'detail/:id', component: DepartmentDetailComponent}
 

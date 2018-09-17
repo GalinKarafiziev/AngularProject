@@ -21,8 +21,8 @@ export class DepartmentService {
 
     updateDepartment(newDepartment: Department): void{
     	console.log (this.dep);
-    	let oldDep = this.dep.find(department => department.id === newDepartment.id
-    		oldDep = newDepartment;
+      let oldDep = this.dep.find(department => department.id === newDepartment.id)
+       oldDep = newDepartment;
       console.log (this.dep);
     }
 
