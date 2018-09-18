@@ -2,21 +2,31 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
       <th scope="col">Task</th>
+      <th scope="col">Department</th>
+      <th scope="col">EMPID</th>
     </tr>
   </thead>
 <tr *ngFor = "let todo of todos" [class.selected]="todo === selectedTask"
 (click)="onSelect(todo)">
   <td>
-    <span>{{todo.id}}</span>
+    <span>{{todo.idE}}</span>
   </td>
-  <td><span>{{todo.name}}</span>
+  <td><span>{{todo.fName}}</span>
   </td>
-  <td><span>{{todo.task}}</span>
+  <td><span>{{todo.lName}}</span>
   </td>
+  <td><span><a class="link" routerLink="/detail/{{todo.id}}">{{todo.task}}</a></span>
+  </td>
+  <td ><span>{{todo.department}}</span>
+  </td>
+  <td><span>{{todo.employee.firstname}}</span></td>
+  <td> <button (click)="delete(todo)">delete</button></td>
+
 </tr>
 </table>
-
+<button type="button" class="btn btn-dark"> <a class="addemployee" routerLink="/addtask"> Add a new Task </a></button>
 <br>
 <todetail [todo]="selectedTask"></todetail>

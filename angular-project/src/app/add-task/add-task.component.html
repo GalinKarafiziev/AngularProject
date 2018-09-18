@@ -1,0 +1,26 @@
+
+<div class="form-group">
+            <div>
+                <h2>Add Task</h2>
+                <form>
+
+                    <p>First name:
+                        <input #fName class="Form" type="text" name="firstname" pattern="[A-Za-z]" required>
+                    </p>
+                    <p>Last name:
+                        <input #lName class="Form" type="text" name="lastname" pattern="[A-Za-z]" required>
+                    </p>
+                     <p>Task:
+                        <input  #task class="Form" type="text" name = "task" required>
+                    </p>
+                    <p>Department:
+                        <input #department type="text" name="username" value="" class="Form" pattern="[A-Za-z]">
+                    </p>
+                    <span>
+                    <button class="btn btn-dark" (click) = "goBack()">Back</button>
+                    </span>
+                    <span>
+                    <button class="btn btn-dark" (click)="add(fName.value, lName.value,task.value,department.value);">Add</button>
+                    </span>
+                </form>
+            </div>
