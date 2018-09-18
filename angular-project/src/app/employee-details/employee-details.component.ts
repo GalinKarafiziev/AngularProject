@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Employee } from '../employee';
+import { Department } from '../department';
 
 import { EmployeeService }  from '../employee.service';
+import { DepartmentService } from '../department.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -12,10 +14,12 @@ import { EmployeeService }  from '../employee.service';
 })
 export class EmployeeDetailsComponent implements OnInit {
   employee : Employee ;
-  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location) { }
+  departments: Department[];
+  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location, private departmentService: DepartmentService) { }
 
   ngOnInit() {
   	this.getEmployee();
+    this.getDepartments();
   }
   getEmployee(): void{
   	const id = +this.route.snapshot.paramMap.get('id');
@@ -29,6 +33,8 @@ export class EmployeeDetailsComponent implements OnInit {
    this.employeeService.updateEmployee(this.employee);
    this.goBack();
  }
-
-
+  getDepartments(): void {
+    this.departmentService.getDepartments().
+    subscribe(departments => this.departments = departments);
+  }
 }

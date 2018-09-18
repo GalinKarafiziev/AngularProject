@@ -1,35 +1,36 @@
 
 <div class="page">
-            <div id="Box">
-                <h2>Add Employee</h2>
-                <form>
+    <div id="Box">
+        <h2>Add Employee</h2>
+        <form>
+            <p>First name
+                <input #empfName class="Form" type="text" name="firstname" pattern="[A-Za-z]" required>
+            </p>
+            <p>Last name
+                <input #emplName class="Form" type="text" name="lastname" pattern="[A-Za-z]" required>
+            </p>
+            <p>Age
+                <input  #age class="Form" type="text" name = "age" pattern=".{2}" required>
+            </p>
 
-                    <p>First name
-                        <input #empfName class="Form" type="text" name="firstname" pattern="[A-Za-z]" required>
-                    </p>
-                    <p>Last name
-                        <input #emplName class="Form" type="text" name="lastname" pattern="[A-Za-z]" required>
-                    </p>
-                    <p>Age
-                        <input  #age class="Form" type="text" name = "age" pattern=".{2}" required>
-                    </p>
+            <p>Gender
+                <input  #gender class="Form" type="text" name = "gender" required>
+            </p>
 
-                     <p>Gender
-                        <input  #gender class="Form" type="text" name = "gender" required>
-                    </p>
+            <p>Department
 
-                    <p>Department
-                        <input #department type="text" name="username" value="" class="Form" pattern="[A-Za-z]">
-                    </p>
-                    <span class = "backbtn">
-                    <button class="btn" (click) = "goBack()">Back</button>
-                    </span>
-                    <span class = "addbtn">
-                    <button class="btn" (click)="add(empfName.value, emplName.value,age.value,gender.value,department.value); empfName.value='';  emplName.value = ''; age.value = ''; gender.value = ''; department.value = '';">Add</button>
-                    </span>
-                </form>
-            </div>
-        </div>
+                <select #department class="Form">
+                   <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
+               </select>
+           </p>
+           <span class = "backbtn">
+            <button class="btn" (click) = "goBack()">Back</button>
+        </span>
+        <span class = "addbtn">
+            <button class="btn" (click)="add(empfName.value, emplName.value,age.value,gender.value,department.value); empfName.value='';  emplName.value = ''; age.value = ''; gender.value = ''; department.value = '';">Add</button>
+        </span>
+    </form>
+</div>
+</div>
 
 
-  

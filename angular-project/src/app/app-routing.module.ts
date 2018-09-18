@@ -20,7 +20,7 @@ const routes: Routes = [
   
   {path: 'addDept',component: AddDepartmentComponent},
   { path: 'departments', component: DepartmentsComponent },
-  {path: 'detail/:id', component: DepartmentDetailComponent}
+  {path: 'Depdetail/:id', component: DepartmentDetailComponent}
 
 ];
 

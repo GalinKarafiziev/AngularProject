@@ -1,38 +1,40 @@
 
 <div class="main">
-<div  class = "details" *ngIf="employee">
-  
-  <h2 ><span class="name">{{employee.firstname | uppercase}} {{employee.lastname| uppercase}}</span>  Details <div class="id"> <span >id: </span>{{employee.id}}</div></h2>
-  <div>
+  <div  class = "details" *ngIf="employee">
+
+    <h2 ><span class="name">{{employee.firstname | uppercase}} {{employee.lastname| uppercase}}</span>  Details <div class="id"> <span >id: </span>{{employee.id}}</div></h2>
+    <div>
       <div class="container">
-        
-         <p>Firstname:
-           <input [(ngModel)]="employee.firstname" placeholder="firstname" class="Form"/>
-          </p>
+
+       <p>Firstname:
+         <input [(ngModel)]="employee.firstname" placeholder="firstname" class="Form"/>
+       </p>
        <br>
-          <p>Lastname:
-            <input [(ngModel)]="employee.lastname" placeholder="lastname" class="Form"/>
-          </p>
-       <br>
-          <p>Age:
-            <input [(ngModel)]="employee.age" placeholder="age" class="Form"/>
-          </p>
-        <br>
-          <p>Gender:
-            <input [(ngModel)]="employee.gender" placeholder="gender" class="Form"/>
-          </p>
-       <br>
-          <p>Department:
-            <input [(ngModel)]="employee.department" placeholder="department" class="Form"/>
-          </p>
-       <br>
-  </div>
-<span class = "backbtn">
-                    <button class="btn" (click) = "goBack()">Back</button>
-                    </span>
-                    <span class = "addbtn">
-                    <button class="btn" (click)="save()">Save</button>
- </span>
+       <p>Lastname:
+        <input [(ngModel)]="employee.lastname" placeholder="lastname" class="Form"/>
+      </p>
+      <br>
+      <p>Age:
+        <input [(ngModel)]="employee.age" placeholder="age" class="Form"/>
+      </p>
+      <br>
+      <p>Gender:
+        <input [(ngModel)]="employee.gender" placeholder="gender" class="Form"/>
+      </p>
+      <br>
+      <p>Department:
+        <select [(ngModel)]="employee.department"  class="Form">
+          <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
+        </select>
+      </p>
+      <br>
+    </div>
+    <span class = "backbtn">
+     <button class="btn" (click) = "goBack()">Back</button>
+   </span>
+   <span class = "addbtn">
+    <button class="btn" (click)="save()">Save</button>
+  </span>
 </div>
 </div>
 </div>

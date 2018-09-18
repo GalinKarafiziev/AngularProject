@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { EmployeeService } from '../employee.service';
 
+import { Department } from '../department';
+import { DepartmentService } from '../department.service';
+
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -10,9 +13,12 @@ import { EmployeeService } from '../employee.service';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location) { }
+  departments: Department[];
+
+  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location, private departmentService: DepartmentService) { }
 
   ngOnInit() {
+    this.getDepartments();
   }
   add(firstname: string, lastname: string, age:number, gender: string, department:string): void {
     firstname = firstname.trim();
@@ -28,6 +34,10 @@ export class AddEmployeeComponent implements OnInit {
   }
   goBack(): void{
     this.location.back();
+  }
+  getDepartments(): void {
+    this.departmentService.getDepartments().
+    subscribe(departments => this.departments = departments);
   }
 
 }
