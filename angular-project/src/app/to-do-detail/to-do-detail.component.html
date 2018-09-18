@@ -1,28 +1,32 @@
+
 <div *ngIf="todo">
   <h2>{{todo.fName}} Details</h2>
   <div><span>Id: </span>{{todo.id}}</div>
   <div>
-    <label>First name:
-      <input [(ngModel)]="todo.fName" placeholder="First name?"/>
-    </label>
-    <br>
-    <label>Last name:
-      <input [(ngModel)]="todo.lName" placeholder="Last name?"/>
-    </label>
     <br>
     <label>Task:
       <input [(ngModel)]="todo.task" placeholder="Task"/>
     </label>
     <br>
-    <label>Department:
-      <input [(ngModel)]="todo.department" placeholder="Department"/>
-    </label>
+    <p>Department:
+      <select [(ngModel)]="todo.department"  class="Form">
+        <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
+      </select>
+    </p>
+    <p>Employee:
+      <select [(ngModel)]="todo.employee"  class="Form">
+        <option *ngFor="let employee of employees" value="{{employee.firstname}}">{{employee.firstname}}</option>
+      </select>
+    </p>
+    <br>
+    <br>
+
     <br>
 
   </div>
   <span><button class="btn btn-dark" (click) = "goBack()">Back</button>
   </span>
-  <span><button class="btn btn-dark" (click)="save()">Save</button>
+  <span><button class="btn btn-dark" (click)="save()" (click)="goBack()">Save</button>
   </span>
 
 </div>

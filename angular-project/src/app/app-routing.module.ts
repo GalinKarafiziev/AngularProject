@@ -8,19 +8,21 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component'
 import { AddDepartmentComponent } from './add-department/add-department.component';
+import { ToDoDetailComponent } from './to-do-detail/to-do-detail.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/employees', pathMatch: 'full' },
   { path: 'employees', component: EmployeesComponent },
   { path: 'detail/:id', component: EmployeeDetailsComponent },
-  {path: 'add', component: AddEmployeeComponent},
-
-
+  { path: 'add', component: AddEmployeeComponent},
   { path: 'todo', component: ToDoComponent },
-  
-  {path: 'addDept',component: AddDepartmentComponent},
+  { path: 'taskdetail/:idE', component: ToDoDetailComponent},
+  { path: 'addtask', component: AddTaskComponent},
+  { path: 'todo', component: ToDoComponent },
+  { path: 'addDept',component: AddDepartmentComponent},
   { path: 'departments', component: DepartmentsComponent },
-  {path: 'Depdetail/:id', component: DepartmentDetailComponent}
+  { path: 'Depdetail/:id', component: DepartmentDetailComponent}
 
 ];
 

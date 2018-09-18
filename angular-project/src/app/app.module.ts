@@ -16,6 +16,7 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
    AppRoutingModule,
     BrowserModule,
     FormsModule
-    
+
   ],
   declarations: [
     EmployeesComponent,
@@ -34,7 +35,8 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
     EmployeeDetailsComponent,
     AddEmployeeComponent,
     DepartmentDetailComponent,
-    AddDepartmentComponent
+    AddDepartmentComponent,
+    AddTaskComponent,
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

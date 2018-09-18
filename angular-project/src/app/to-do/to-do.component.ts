@@ -20,6 +20,7 @@ export class ToDoComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.getTasks();
   }
 
   onSelect(todo: Todo): void {

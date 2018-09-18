@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TodoService } from '../to-do/to-do.service';
 import { Location } from '@angular/common';
+import { DepartmentService } from '../department.service';
+import { EmployeeService } from '../employee.service';
+import { Department } from 'src/app/department';
+import { Employee } from '../employee';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -9,24 +13,34 @@ import { Location } from '@angular/common';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private todoService: TodoService, private location: Location) { }
+departments: Department[];
+employees: Employee[];
+  constructor(private route: ActivatedRoute, private todoService: TodoService, private location: Location, private departmentService: DepartmentService, private employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.getDepartments();
+    this.getEmployees();
   }
 
-  add(fName: string, lName: string, task: string, department:string): void {
-    fName = fName.trim();
-    lName = lName.trim();
+  add(task: string, department:string, employee: string): void {
     task = task.trim();
     department = department.trim();
-    if(!fName){return;}
-    if(!lName){return;}
+    employee = employee.trim();
     if(!task){return;}
     if(!department){return;}
-    this.todoService.addTask(fName, lName,task,department);
+    if(!employee){return;}
+    this.todoService.addTask(task,department,employee);
   }
   goBack(): void{
     this.location.back();
+  }
+
+  getDepartments(): void {
+    this.departmentService.getDepartments().subscribe(departments => this.departments = departments);
+  }
+
+  getEmployees(): void{
+    this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
   }
 
 }

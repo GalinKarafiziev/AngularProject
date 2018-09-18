@@ -21,8 +21,8 @@ export class TodoService
   }
 
   mockToArray() {
-  this.todoTasks.push(new Todo("Bla", "Bla", "bla", "Bla", 1));
-  this.todoTasks.push(new Todo("Ala", "Bala", "Portokala", "Babati", 2));
+  this.todoTasks.push(new Todo("Write C", "ASCI", "Joe"));
+  this.todoTasks.push(new Todo("Hire specialist", "ASCI", "Joe"));
   return this.todoTasks;
 }
 getTasks(): Observable<Todo[]>{
@@ -32,16 +32,16 @@ getTask(id: number): Observable<Todo>{
   return of (this.todoTasks.find(task => task.idE === id));
 }
 
-updateTask(nTask: Todo): void{
+updateTask(newTask: Todo): void{
   console.log (this.todoTasks);
-  let oTask = this.todoTasks.find(oTask => oTask.idE === nTask.idE)
-    oTask = nTask;
+  let oTask = this.todoTasks.find(task => task.idE === newTask.idE)
+    oTask = newTask;
   console.log (this.todoTasks);
 }
 
-addTask (fname:string, lname:string, task: string, department:string, id:number): void {
+addTask (task: string, department:string, employee: string): void {
   console.log (this.todoTasks);
-  this.todoTasks.push(new Todo(fname,lname,task, department, id));
+  this.todoTasks.push(new Todo(task, department, employee));
   console.log (this.todoTasks);
 }
 deleteTask(task: Todo): void{

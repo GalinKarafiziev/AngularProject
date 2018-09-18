@@ -5,6 +5,9 @@ import { Todo } from 'src/app/todo';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { EmployeeService } from '../employee.service';
+import { DepartmentService } from '../department.service';
+import { Department } from '../department';
+import { Employee } from 'src/app/employee';
 
 @Component({
   selector: 'todetail',
@@ -16,15 +19,19 @@ export class ToDoDetailComponent implements OnInit {
 @Input() todo: Todo;
 empServ: EmployeeService;
 todoServ:TodoService;
-
-constructor(private route: ActivatedRoute, private employeeService: TodoService, private location: Location) { }
+departments: Department[];
+employees: Employee[];
+todo2: Todo;
+constructor(private route: ActivatedRoute, private todoService: TodoService, private location: Location, private employeeService: EmployeeService, private departmentService: DepartmentService) { }
 
 
   ngOnInit() {
+    this.getEmployees();
+    this.getDepartments();
   }
   getTask(): void{
   	const id = +this.route.snapshot.paramMap.get('id');
-  	this.employeeService.getTask(id).subscribe(task => this.todo = task)
+  	this.todoService.getTask(id).subscribe(task => this.todo = task)
   }
 
   goBack(): void{
@@ -34,6 +41,13 @@ constructor(private route: ActivatedRoute, private employeeService: TodoService,
    this.todoServ.updateTask(this.todo);
    this.goBack();
  }
+ getDepartments(): void {
+   this.departmentService.getDepartments().subscribe(departments => this.departments = departments);
+ }
+
+getEmployees(): void{
+  this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
+}
 
 
 }
