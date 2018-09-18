@@ -10,26 +10,30 @@
                 <input #emplName class="Form" type="text" name="lastname" pattern="[A-Za-z]" required>
             </p>
             <p>Age
-                <input  #age class="Form" type="text" name = "age" pattern=".{2}" required>
+                <input #age type="number" min="18" max="99" step="1" class="Form"/> 
             </p>
 
             <p>Gender
-                <input  #gender class="Form" type="text" name = "gender" required>
-            </p>
+                <select #gender  class="Form">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+              </select>
+          </p>
 
-            <p>Department
+          <p>Department
 
-                <select #department class="Form">
-                   <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
-               </select>
-           </p>
-           <span class = "backbtn">
-            <button class="btn" (click) = "goBack()">Back</button>
-        </span>
-        <span class = "addbtn">
-            <button class="btn" (click)="add(empfName.value, emplName.value,age.value,gender.value,department.value); empfName.value='';  emplName.value = ''; age.value = ''; gender.value = ''; department.value = '';">Add</button>
-        </span>
-    </form>
+            <select #department class="Form">
+             <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
+         </select>
+     </p>
+     <span class = "backbtn">
+        <button class="btn" (click) = "goBack()">Back</button>
+    </span>
+    <span class = "addbtn">
+        <button class="btn" (click)="add(empfName.value, emplName.value,age.value,gender.value,department.value); empfName.value='';  emplName.value = ''; age.value = ''; gender.value = ''; department.value = '';">Add</button>
+    </span>
+</form>
 </div>
 </div>
 

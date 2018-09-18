@@ -15,11 +15,15 @@
       </p>
       <br>
       <p>Age:
-        <input [(ngModel)]="employee.age" placeholder="age" class="Form"/>
+      <input [(ngModel)]="employee.age" type="number" min="18" max="99" step="1" class="Form"/> 
       </p>
       <br>
       <p>Gender:
-        <input [(ngModel)]="employee.gender" placeholder="gender" class="Form"/>
+        <select [(ngModel)]="employee.gender"  class="Form">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
       </p>
       <br>
       <p>Department:
