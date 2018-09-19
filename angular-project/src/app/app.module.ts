@@ -16,6 +16,7 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 
 
@@ -36,7 +37,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
     AddEmployeeComponent,
     DepartmentDetailComponent,
     AddDepartmentComponent,
-    AddTaskComponent,
+    DashboardComponent,
+    AddTaskComponent
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

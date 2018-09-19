@@ -11,7 +11,8 @@ import { EmployeeService } from '../employee.service';
 export class EmployeesComponent implements OnInit {
   
   employees: Employee[];
-
+  
+  
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
@@ -27,3 +28,4 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.deleteEmployee(employee);
   }
 }
+   

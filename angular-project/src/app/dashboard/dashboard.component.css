@@ -1,0 +1,43 @@
+.ul li {
+	text-decoration: none;
+	display: inline-block;
+	padding:10px;
+	margin-right: 100px;
+	margin-top: 100px;
+	font-size: 45px;
+
+}
+.routes{
+	text-decoration: none;
+	color:solid black;
+	padding: 5px;
+}
+ul{
+	text-align: center;
+}
+.empinfo{
+	border:solid black 3px;
+	border-radius: 20px;
+	width: 250px;
+	height: 160px;
+	text-align: center;
+	margin-left: 13%;
+	margin-top: 5%;
+	color:darkblue;
+	font-size: 17px;
+
+}
+.empinfo p{
+	float:right;
+	margin-right: 13px;
+}
+.empnr{
+	margin-top:17px;
+}
+
+.label{
+	font-style: solid;
+	color: black;
+	float: left;
+	font-size: 14px;
+}
