@@ -11,15 +11,23 @@
                         <input #depLocation class="Form" type="text" name="location" pattern="[A-Za-z]" required>
                     </p>
 
+                    <p>Еmployee
 
+                      <select #employee class="Form">
+                       <option *ngFor="let employee of employees" value="{{employee.firstname}}">{{employee.firstname}}</option>
+                    </select>
+                    </p>
 
 
                     <span class = "backbtn">
                     <button class="btn" (click) = "goBack()">Back</button>
                     </span>
+
+
                     <span class = "addbtn">
                     <button class="btn" (click)="add(depName.value, depLocation.value); depName.value='';  depLocation.value = ''; ">Add</button>
                     </span>
+
                 </form>
             </div>
         </div>

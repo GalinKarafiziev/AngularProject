@@ -37,18 +37,19 @@
     color:white;
     text-align: center;
     display: inline-block;
-    margin-top: 6.5%;
-    margin-left: 20px;
+    margin-top: 4%;
+
     cursor: pointer;
     width: 100px;
     height: 30px;
 }
 .backbtn{
 	margin-right:50px;
-	margin-left: -20px;
+	margin-left: 5px;
 }
 .addbtn{
-	margin-left: 169px;
+	margin-left: 170px;
+
 }
 .Form {
     float: right;
