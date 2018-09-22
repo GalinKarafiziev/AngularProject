@@ -15,7 +15,7 @@
       </p>
       <br>
       <p>Age:
-        <input [(ngModel)]="employee.age" type="number" min="18" max="99" step="1" class="Form"/> 
+        <input [(ngModel)]="employee.age" type="number" min="18" max="99" step="1" class="Form"/>
       </p>
       <br>
       <p>Gender:
@@ -33,15 +33,19 @@
       </p>
       <br>
     </div>
+
     <div *ngIf="a">
     <button class="showDetails" (click) = "Show()">Show Department Details</button>
     </div>
+
     <div *ngIf="dep">
       <p *ngIf="dep" class="dep"> Department name: {{dep.name}} // Department location: {{dep.location}} </p> <button class="delete" (click) = "Delete()">Hide</button>
     </div>
+
     <span class = "backbtn">
      <button class="btn" (click) = "goBack()">Back</button>
    </span>
+
    <span class = "addbtn">
     <button class="btn" (click)="save()">Save</button>
   </span>

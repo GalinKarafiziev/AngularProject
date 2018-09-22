@@ -19,6 +19,10 @@ export class EmployeeService {
   	return of (this.emp.find(employee => employee.id === id));
   }
 
+  getEmployeeByName(firstname:string) : Observable<Employee>{
+    return of (this.emp.find(employee => employee.firstname === firstname))
+  }
+
   updateEmployee(newEmployee: Employee): void{
   	console.log (this.emp);
   	let oldEmp = this.emp.find(employee => employee.id === newEmployee.id)
@@ -28,12 +32,12 @@ export class EmployeeService {
 
   addEmployee (fname:string, lname:string,age:number, gender: string, department:string): void {
   	console.log (this.emp);
-  	this.emp.push(new Employee(fname,lname,age,gender,department)); 
+  	this.emp.push(new Employee(fname,lname,age,gender,department));
   	console.log (this.emp);
   }
   deleteEmployee(employee: Employee): void{
   	console.log (this.emp);
-  	
+
   	 this.emp.forEach( (item, index) => {
      if(item === employee) this.emp.splice(index,1);});
   	console.log (this.emp);

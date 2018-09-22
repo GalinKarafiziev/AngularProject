@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DepartmentService } from '../department.service';
+
+import { Employee } from '../employee';
+import { EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
@@ -9,9 +12,11 @@ import { DepartmentService } from '../department.service';
 })
 export class AddDepartmentComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private departmentService: DepartmentService, private location: Location) { }
+employees : Employee[];
+  constructor(private route: ActivatedRoute, private departmentService: DepartmentService, private location: Location,private employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.getEmployees();
   }
   add(depName: string, location: string): void {
     depName = depName.trim();
@@ -26,6 +31,11 @@ export class AddDepartmentComponent implements OnInit {
   }
   goBack(): void{
     this.location.back();
+  }
+
+  getEmployees(): void {
+    this.employeeService.getEmployees().
+    subscribe(employees => this.employees = employees);
   }
 
 }
