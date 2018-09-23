@@ -22,6 +22,10 @@ export class DepartmentService {
       return of (this.dep.find(department => department.name === name))
     }
 
+    getDepartmentName(name: string): Observable<Department>{
+      return of(this.dep.find(department => department.name === name));
+    }
+
     updateDepartment(newDepartment: Department): void{
     	console.log (this.dep);
       let oldDep = this.dep.find(department => department.id === newDepartment.id)

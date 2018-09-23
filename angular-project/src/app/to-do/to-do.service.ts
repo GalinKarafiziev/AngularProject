@@ -21,8 +21,8 @@ export class TodoService
   }
 
   mockToArray() {
-  this.todoTasks.push(new Todo("Write C", "ASCI", "Joe"));
-  this.todoTasks.push(new Todo("Hire specialist", "ASCI", "Joe"));
+  this.todoTasks.push(new Todo("Write C", "ASAI", "John"));
+  this.todoTasks.push(new Todo("Hire specialist", "ASAI", "John"));
   return this.todoTasks;
 }
 getTasks(): Observable<Todo[]>{

@@ -7,20 +7,65 @@
       <th scope="col">Employee</th>
     </tr>
   </thead>
-<tr *ngFor = "let todo of todos" [class.selected]="todo === selectedTask"
-(click)="onSelect(todo)">
-  <td>
-    <span>{{todo.idE}}</span>
-  </td>
-  <td><span>{{todo.task}}</span>
-  </td>
-  <td ><span>{{todo.department}}</span>
-  </td>
-  <td><span>{{todo.employee}}</span></td>
-  <td> <button (click)="delete(todo)">delete</button></td>
+  <tr *ngFor="let todo of todos" [class.selected]="todo === selectedTask" (click)="onSelect(todo)">
+    <td>
+      <span>{{todo.idE}}</span>
+    </td>
+    <td><span>{{todo.task}}</span>
+    </td>
+    <td><span (click)="show(todo.department)">{{todo.department}}</span>
+    </td>
+    <td><span (click)="showEmployee(todo.employee)">{{todo.employee}}</span></td>
+    <td><button (click)="delete(todo)">delete</button></td>
 
-</tr>
+  </tr>
 </table>
-<button type="button" class="btn btn-dark"> <a class="addemployee" routerLink="/addtask"> Add a new Task </a></button>
+
 <br>
-<todetail [todo]="selectedTask"></todetail>
+<a class="addTask" routerLink="/addtask"><input type="submit" class="btn btn-dark" value="Add new taks">Random link</a>
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="depart != null">
+  <label>Dep ID:
+    <input [(ngModel)]="depart.id" placeholder="Task" />
+  </label>
+  <br>
+  <br>
+  <label>Dep Location:
+    <input [(ngModel)]="depart.location" placeholder="Task" />
+  </label>
+  <br>
+  <br>
+  <label>Dep ID:
+    <input [(ngModel)]="depart.menId" placeholder="Task" />
+  </label>
+  <br>
+  <br>
+  <label>Dep Name:
+    <input [(ngModel)]="depart.name" placeholder="Task" />
+  </label>
+  <br>
+  <br>
+</div>
+
+<div *ngIf="employee != null">
+  <label>Employee ID:
+    <input [(ngModel)]="employee.id" placeholder="Task" />
+  </label>
+  <br>
+  <br>
+  <label>First Name:
+    <input [(ngModel)]="employee.firstname" placeholder="Task" />
+  </label>
+  <br>
+  <br>
+  <label>Last Name:
+    <input [(ngModel)]="employee.lastname" placeholder="Task" />
+  </label>
+  <br>
+  <br>
+</div>
+
+<app-to-detail [todo]="selectedTask"></app-to-detail>
