@@ -74,7 +74,7 @@ export class ToDoComponent implements OnInit {
 
   selectEmployee(name: string) {
     var context = this;
-    this.employeeService.getEmployeeName(name).subscribe(function(emp) {
+    this.employeeService.getEmployeeByName(name).subscribe(function(emp) {
       context.employee = emp;
       console.log(emp);
       console.log(name);
