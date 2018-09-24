@@ -12,7 +12,7 @@
 	color:solid black;
 	padding: 5px;
 }
-ul{
+.ul{
 	text-align: center;
 }
 .empinfo{
@@ -25,6 +25,7 @@ ul{
 	margin-top: 5%;
 	color:darkblue;
 	font-size: 17px;
+	margin-left: 110px;
 
 
 }
@@ -35,10 +36,12 @@ ul{
 	width: 250px;
 	height: 160px;
 	text-align: center;
-	margin-left: 70%;
+	margin-left: 13%;
 	margin-top: 5%;
 	color:darkblue;
-  font-size: 17px;}
+	font-size: 17px;
+	float:left;
+	margin-left:120px;}
 
 .empinfo p{
 	float:right;
@@ -53,4 +56,35 @@ ul{
 	color: black;
 	float: left;
 	font-size: 14px;
+}
+.info{
+display: inline-block;
+}
+.info li{
+	display: inline-block;
+	text-decoration: none;
+}
+.tasks{
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.depinfo{
+	border:solid black 3px;
+	border-radius: 20px;
+	width: 250px;
+	height: 160px;
+	text-align: center;
+	margin-left: 13%;
+	margin-top: 5%;
+	color:darkblue;
+	font-size: 17px;
+	float:left;
+	margin-left:120px;
+
+}
+.taskDash{
+	margin-left: 50px;
+}
+.depnr{
+	margin-top: 17px;
 }

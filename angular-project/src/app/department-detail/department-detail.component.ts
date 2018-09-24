@@ -55,7 +55,7 @@ export class DepartmentDetailComponent implements OnInit {
    this.average = 1;
  }
  Show():void{
-   this.Select(this.department.employee); // this cant be true
+   //this.Select(this.department.employee); // this cant be true
    this.average = null;
  }
 

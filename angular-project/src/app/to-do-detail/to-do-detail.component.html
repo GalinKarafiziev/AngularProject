@@ -3,26 +3,9 @@
    <div><span>Id: </span>{{todo.idE}}</div>
    <div>
 
-  <br>
-      <p>
-         Department:
-         <select [(ngModel)]="todo.department"  class="Form">
-         <option *ngFor="let department of departments">{{department.name}}</option>
-         </select>
-      </p>
-      <p>
-         Employee:
-         <select [(ngModel)]="todo.employee"  class="Form">
-         <option *ngFor="let employee of employees">{{employee.firstname}}</option>
-         </select>
-      </p>
-    </div>
-      <br>
-      <br>
-
-      <br>
-   </div>
-   <span><button class="btn btn-dark" (click) = "goBack()">Back</button>
-   </span>
-   <span><button class="btn btn-dark" (click)="save()" (click)="goBack()">Save</button>
-   </span>
+  </div>
+  <span><button class="btn btn-dark" (click) = "goBack()">Back</button>
+  </span>
+  <span><button class="btn btn-dark" (click)="save()" (click)="goBack()">Save</button>
+  </span>
+</div>

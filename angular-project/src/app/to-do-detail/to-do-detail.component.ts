@@ -16,7 +16,7 @@ import { Employee } from 'src/app/employee';
 })
 export class ToDoDetailComponent implements OnInit {
 
-@Input()
+@Input() 
 todo: Todo;
 empServ: EmployeeService;
 todoServ: TodoService;

@@ -21,7 +21,6 @@ const routes: Routes = [
   { path: 'todo', component: ToDoComponent },
   { path: 'taskdetail/:idE', component: ToDoDetailComponent},
   { path: 'addtask', component: AddTaskComponent},
-  { path: 'todo', component: ToDoComponent },
   { path: 'addDept',component: AddDepartmentComponent},
   { path: 'departments', component: DepartmentsComponent },
   { path: 'Depdetail/:id', component: DepartmentDetailComponent}

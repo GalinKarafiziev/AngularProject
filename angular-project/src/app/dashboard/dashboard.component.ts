@@ -30,30 +30,32 @@ export class DashboardComponent implements OnInit {
   tasks: Todo[];
 
   constructor(private employeeService: EmployeeService, private todoServices: TodoService,private departmentService: DepartmentService) {
-   }
+  }
 
   ngOnInit() {
     this.getEmployees();
     this.getTasks();
-  	this.getNrEmployees();
-  	this.getAvgAge(0);
-
+    this.getAvgAge(0);
+    this.getNrEmployees();
+    this.getNrEmp(0,0);
+    
+    this.getDepartments();
     this.getNumDep();
     this.getDepEindhoven(0);
     this.getDepNotEindhoven(0);
-    this.getDepartments();
     
-    this.getNrEmp(0,0);
+    
+    
     this.getNrTasks();
     this.getDepartments();
   }
- getTasks() {
-  return this.todoServices.getTasks().subscribe(tasks => this.tasks = tasks);
- }
+  getTasks() {
+    return this.todoServices.getTasks().subscribe(tasks => this.tasks = tasks);
+  }
   getDepartments(): void {
-   this.departmentService.getDepartments().
-   subscribe(departments => this.departments = departments);
- }
+    this.departmentService.getDepartments().
+    subscribe(departments => this.departments = departments);
+  }
   getNumDep():void{
     this.depNumber=this.departments.length;
   }
@@ -64,24 +66,25 @@ export class DashboardComponent implements OnInit {
     });
 
     this.inEindhoven = loc;
-    }
-    getDepNotEindhoven(other:number):void{
-      this.departments.forEach(function(department){
-        if(department.location != 'Eindhoven'){other += 1;}
+  }
+  getDepNotEindhoven(other:number):void{
+    this.departments.forEach(function(department){
+      if(department.location != 'Eindhoven'){other += 1;}
 
-      });
+    });
 
-      this.notEindhoven = other;
-      }
+    this.notEindhoven = other;
+  }
 
 
-   getEmployees(): void {
+  getEmployees(): void {
   	this.employeeService.getEmployees().
   	subscribe(employees => this.employees = employees);
   }
   getNrEmployees():void{
   	this.numberEmployees = this.employees.length;
   }
+
   getAvgAge(age:number):void{
   	this.employees.forEach(function(employee){
   		age +=  employee.age;
@@ -95,9 +98,9 @@ export class DashboardComponent implements OnInit {
   	});
   	this.femaleEmployee = female;
   	this.maleEmployee = male;
-    }
+  }
 
   getNrTasks():void{
     this.numberTasks = this.tasks.length;
   }
- }
+}
