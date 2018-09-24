@@ -92,7 +92,7 @@ display: inline-block;
 .depinfo{
 	border:solid black 3px;
 	border-radius: 20px;
-	width: 250px;
+	width: 270px;
 	height: 160px;
 	text-align: center;
 	margin-left: 13%;
@@ -100,12 +100,12 @@ display: inline-block;
 	color:darkblue;
 	font-size: 17px;
 	float:left;
-	margin-left:120px;
+	margin-left:110px;
 
 }
 .taskDash{
 	margin-left: 50px;
 }
-.depnr{
-	margin-top: 17px;
+.nrdep{
+	margin-top:17px;
 }
