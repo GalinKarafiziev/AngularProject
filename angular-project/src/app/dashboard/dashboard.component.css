@@ -29,6 +29,27 @@ ul{
 
 }
 
+.depinfo{
+	border:solid black 3px;
+	border-radius: 20px;
+	width: 250px;
+	height: 160px;
+	text-align:justify;
+	margin-left: 45%;
+	margin-top: -25%;
+	color:darkblue;
+	font-size: 17px;
+}
+.depinfo p{
+	float:right;
+	margin-right: 13px;
+}
+.depnr{
+
+	padding-bottom: 90px;
+	margin-top: -35%;
+}
+
 .taskinfo{
 	border:solid black 3px;
 	border-radius: 20px;

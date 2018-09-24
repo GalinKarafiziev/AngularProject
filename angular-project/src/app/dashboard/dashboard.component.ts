@@ -21,10 +21,10 @@ export class DashboardComponent implements OnInit {
   maleEmployee: number;
   avgAge: number;
 
-  departments:Department[];
-  depNumber:number;
-  inEindhoven:number;
-  notEindhoven:number;
+  departments: Department[];
+  depNumber: number;
+  inEindhoven: number;
+  notEindhoven: number;
 
   numberTasks: number;
   tasks: Todo[];
@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
     this.getDepEindhoven(0);
     this.getDepNotEindhoven(0);
     this.getDepartments();
-    
+
     this.getNrEmp(0,0);
     this.getNrTasks();
     this.getDepartments();
@@ -55,12 +55,11 @@ export class DashboardComponent implements OnInit {
    subscribe(departments => this.departments = departments);
  }
   getNumDep():void{
-    this.depNumber=this.departments.length;
+    this.depNumber = this.departments.length;
   }
   getDepEindhoven(loc:number):void{
     this.departments.forEach(function(department){
       if(department.location == 'Eindhoven'){loc += 1;}
-
     });
 
     this.inEindhoven = loc;
@@ -68,7 +67,6 @@ export class DashboardComponent implements OnInit {
     getDepNotEindhoven(other:number):void{
       this.departments.forEach(function(department){
         if(department.location != 'Eindhoven'){other += 1;}
-
       });
 
       this.notEindhoven = other;
