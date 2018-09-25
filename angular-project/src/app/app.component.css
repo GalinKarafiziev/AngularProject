@@ -5,13 +5,21 @@
 	border-radius: 5px;
 	font-family:"Times New Roman";
 	color: grey;
-	
+	border: solid grey 2px;
+	border-radius: 5px;
 	margin-top: 20px;
 	margin-left: 10px;
+	padding: 5px;
+	
 	
 }
+.btn{
+margin-top: 6px;
+margin-left: -5px;
+}
 a:hover{
-	color:black;
+	color:white;
+	background-color: grey;
 }
 
 
