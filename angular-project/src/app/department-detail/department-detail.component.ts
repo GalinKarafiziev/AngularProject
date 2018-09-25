@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Department } from '../department';
-
-import { DepartmentService }  from '../department.service';
-
 import { Employee } from '../employee';
+import { DepartmentService }  from '../department.service';
 import { EmployeeService }  from '../employee.service';
 @Component({
   selector: 'app-department-detail',
@@ -18,6 +16,7 @@ export class DepartmentDetailComponent implements OnInit {
   employees: Employee[];
   emp: Employee;
   average:number=1;
+
 
   constructor(private route: ActivatedRoute, private departmentService: DepartmentService, private location: Location,private employeeService: EmployeeService) { }
 
@@ -45,8 +44,8 @@ export class DepartmentDetailComponent implements OnInit {
  }
 
  Select(firstname:string){
-   firstname = firstname.trim();
-   if(!firstname){return;}
+   if(!firstname){ return; }
+firstname = firstname.trim();
    this.employeeService.getEmployeeByName(firstname).subscribe(Employee => this.emp = Employee);
  }
 
@@ -55,7 +54,7 @@ export class DepartmentDetailComponent implements OnInit {
    this.average = 1;
  }
  Show():void{
-   //this.Select(this.department.employee); // this cant be true
+   this.Select(this.department.employee); 
    this.average = null;
  }
 

@@ -12,6 +12,7 @@ export class DepartmentsComponent implements OnInit {
 
   departments: Department[];
 
+
   constructor(private departmentService: DepartmentService) { }
 
   ngOnInit() {
