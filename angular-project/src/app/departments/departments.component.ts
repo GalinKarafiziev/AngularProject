@@ -11,7 +11,7 @@ import { DepartmentService } from '../department.service';
 export class DepartmentsComponent implements OnInit {
 
   departments: Department[];
-
+  searchDep: string;
 
   constructor(private departmentService: DepartmentService) { }
 
