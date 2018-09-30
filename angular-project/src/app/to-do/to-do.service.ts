@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Todo } from 'src/app/todo';
+import { Todo } from '../todo';
 import { Observable, of } from 'rxjs';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';
@@ -30,13 +30,6 @@ getTasks(): Observable<Todo[]>{
 }
 getTask(id: number): Observable<Todo>{
   return of (this.todoTasks.find(task => task.idE === id));
-}
-
-updateTask(newTask: Todo): void{
-  console.log (this.todoTasks);
-  let oTask = this.todoTasks.find(task => task.idE === newTask.idE)
-    oTask = newTask;
-  console.log (this.todoTasks);
 }
 
 addTask (task: string, department:string, employee: string): void {

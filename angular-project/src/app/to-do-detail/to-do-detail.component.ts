@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { TodoService } from '../to-do/to-do.service';
-import { Todo } from 'src/app/todo';
+import { Todo } from '../todo';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { EmployeeService } from '../employee.service';
 import { DepartmentService } from '../department.service';
 import { Department } from '../department';
-import { Employee } from 'src/app/employee';
+import { Employee } from '../employee';
 
 @Component({
   selector: 'app-to-detail',
@@ -16,7 +16,7 @@ import { Employee } from 'src/app/employee';
 })
 export class ToDoDetailComponent implements OnInit {
 
-@Input() 
+@Input()
 todo: Todo;
 empServ: EmployeeService;
 todoServ: TodoService;
@@ -43,10 +43,6 @@ this.todoService.getTask(id).subscribe(task => this.todo = task);
 
   goBack(): void {
     this.location.back();
-  }
-  save(): void {
-   this.todoServ.updateTask(this.todo);
-   this.goBack();
   }
   getDepartments(): void {
     this.departmentService.getDepartments().subscribe(departments => this.departments = departments);

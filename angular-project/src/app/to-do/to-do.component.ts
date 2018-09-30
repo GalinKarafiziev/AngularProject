@@ -20,6 +20,7 @@ export class ToDoComponent implements OnInit {
   departments: Department[];
   depart: Department;
   employee: Employee;
+  searchTask: string;
 
   constructor(
     private service: TodoService,

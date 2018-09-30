@@ -1,3 +1,4 @@
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -7,7 +8,7 @@
       <th scope="col">Employee</th>
     </tr>
   </thead>
-  <tr *ngFor="let todo of todos" [class.selected]="todo === selectedTask" (click)="onSelect(todo)">
+  <tr *ngFor="let todo of todos | taskfilter : searchTask" [class.selected]="todo === selectedTask" (click)="onSelect(todo)">
     <td>
       <span>{{todo.idE}}</span>
     </td>
@@ -22,48 +23,31 @@
 </table>
 <button type="button" class="btn btn-dark"><a class="addemployee" routerLink="/addtask"> Add a new Task </a></button>
 <br>
-<a class="addTask" routerLink="/addtask"><input type="submit" class="btn btn-dark" value="Add new taks">Random link</a>
 <br>
-<br>
-<br>
-<br>
+<div class="searchTask">
+  <p class="search">Search a task:</p>
+  <input [(ngModel)]="searchTask" placeholder="Task">
+  </div>
 <div *ngIf="depart != null">
-  <label>Dep ID:
-    <input [(ngModel)]="depart.id" placeholder="Task" />
-  </label>
+  <label>Dep ID:</label> {{depart.id}}
   <br>
   <br>
-  <label>Dep Location:
-    <input [(ngModel)]="depart.location" placeholder="Task" />
-  </label>
+  <label>Dep Location:</label> {{depart.location}}
   <br>
   <br>
-  <label>Dep ID:
-    <input [(ngModel)]="depart.menId" placeholder="Task" />
-  </label>
-  <br>
-  <br>
-  <label>Dep Name:
-    <input [(ngModel)]="depart.name" placeholder="Task" />
-  </label>
+  <label>Dep Name:</label> {{depart.name}}
   <br>
   <br>
 </div>
 
 <div *ngIf="employee != null">
-  <label>Employee ID:
-    <input [(ngModel)]="employee.id" placeholder="Task" />
-  </label>
+  <label>Employee ID:</label> {{employee.id}}
   <br>
   <br>
-  <label>First Name:
-    <input [(ngModel)]="employee.firstname" placeholder="Task" />
-  </label>
+  <label>First Name:</label> {{employee.firstname}}
   <br>
   <br>
-  <label>Last Name:
-    <input [(ngModel)]="employee.lastname" placeholder="Task" />
-  </label>
+  <label>Last Name:</label> {{employee.lastname}}
   <br>
   <br>
 </div>

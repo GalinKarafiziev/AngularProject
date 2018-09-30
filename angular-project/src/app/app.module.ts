@@ -19,6 +19,7 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import {DepFilterPipe } from  './departments/dep-filter.pipe';
+import { TaskFilterPipe } from './to-do/task.pipe';
 
 @NgModule({
    imports: [
@@ -39,7 +40,9 @@ import {DepFilterPipe } from  './departments/dep-filter.pipe';
     AddDepartmentComponent,
     DashboardComponent,
     AddTaskComponent,
-    DepFilterPipe
+    DepFilterPipe,
+    TaskFilterPipe
+
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
