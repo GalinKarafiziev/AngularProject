@@ -18,8 +18,8 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddTaskComponent } from './add-task/add-task.component';
+import {DepFilterPipe } from  './departments/dep-filter.pipe';
 import { HttpClientModule }    from '@angular/common/http';
-
 
 @NgModule({
    imports: [
@@ -40,7 +40,8 @@ import { HttpClientModule }    from '@angular/common/http';
     DepartmentDetailComponent,
     AddDepartmentComponent,
     DashboardComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    DepFilterPipe
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
