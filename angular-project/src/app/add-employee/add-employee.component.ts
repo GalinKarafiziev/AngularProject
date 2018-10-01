@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { EmployeeService } from '../employee.service';
-
+import { Employee } from '../employee';
 import { Department } from '../department';
 import { DepartmentService } from '../department.service';
 
@@ -14,6 +14,7 @@ import { DepartmentService } from '../department.service';
 export class AddEmployeeComponent implements OnInit {
 
   departments: Department[];
+  e: Employee ;
 
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location, private departmentService: DepartmentService) { }
 
@@ -30,6 +31,12 @@ export class AddEmployeeComponent implements OnInit {
     if(!age){return;}
     if(!gender){return;}
     if(!department){return;}
+    this.e.firstname = firstname;
+    this.e.lastname = lastname;
+    this.e.age = age;
+    this.e.gender = gender;
+    this.e.department = department;
+    console.log(this.e);
     this.employeeService.addEmployee(firstname, lastname,age,gender,department);
   }
   goBack(): void{

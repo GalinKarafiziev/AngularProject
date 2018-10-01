@@ -18,13 +18,15 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddTaskComponent } from './add-task/add-task.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 
 @NgModule({
    imports: [
    AppRoutingModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
   declarations: [

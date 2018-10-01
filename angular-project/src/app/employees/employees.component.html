@@ -2,7 +2,7 @@
 <div class="container">
 <h2> Employees </h2>
 <p class="info"> *In order to update the details of an employee press on his/her first name.</p>
-
+<input  #emp/><button (click)="Search(emp.value)">Search</button>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -17,13 +17,12 @@
       <th scope="row">{{ employee.id }}</th>
       <td><a class="link" routerLink="/detail/{{employee.id}}">{{ employee.firstname }}</a></td>
       <td>{{ employee.lastname }}</td>
-      <td> <button class="delete" title="delete hero"
+      <td> <button class="delete" title="delete employee"
       (click)="delete(employee)">delete</button></td>
     </tr>
   </tbody>
 </table>
   <a class="addemployee" routerLink="/add"> Add a new Employee </a>
-
 </div>
 
 

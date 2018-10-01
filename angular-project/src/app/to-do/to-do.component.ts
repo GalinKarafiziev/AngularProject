@@ -55,7 +55,7 @@ export class ToDoComponent implements OnInit {
 
   getEmployees(): void {
     this.employeeService
-      .getEmployees()
+      .getEmps()
       .subscribe(employees => (this.employees = employees));
   }
 

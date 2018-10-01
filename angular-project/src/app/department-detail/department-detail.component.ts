@@ -39,7 +39,7 @@ export class DepartmentDetailComponent implements OnInit {
  }
 
  getEmployees(): void {
-   this.employeeService.getEmployees().
+   this.employeeService.getEmps().
    subscribe(employees => this.employees = employees);
  }
 
