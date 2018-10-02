@@ -1,4 +1,4 @@
-<!--
+
 <div class="main">
 <div  class = "details" *ngIf="department">
 
@@ -7,7 +7,7 @@
       <div class="container">
 <div> <span >id: </span>{{department.id}}</div>
          <p>Department name:
-           <input [(ngModel)]="{{s}}" placeholder="name" class="Form"/>
+           <input [(ngModel)]="department.name" placeholder="name" class="Form"/>
           </p>
        <br>
           <p>Location:
@@ -17,7 +17,7 @@
 
       <p> Employee:
        <select [(ngModel)]="department.employee"  class="Form">
-         <option *ngFor="let employee of employees" value="{{employee.firstname}}">{{employee.firstname}}</option> 
+         <option *ngFor="let employee of employees" value="{{employee.firstname}}">{{employee.firstname}}</option>
        </select>
      </p>
  </div>
@@ -27,10 +27,10 @@
  </div>
 
  <div *ngIf="emp">
-   <p *ngIf="emp" class="emp"> Employee id: {{emp.id}} </p>
-   <p *ngIf="emp" class="emp"> Employee name: {{emp.firstname}}   {{emp.lastname}}   </p>
-   <p *ngIf="emp" class="emp"> Employee gender: {{emp.gender}} </p>
-   <p *ngIf="emp" class="emp"> Employee age: {{emp.age}} </p>
+   <p *ngIf="emp" class="emp"> Employee id: {{empReadone + id}} </p>
+   <p *ngIf="emp" class="emp"> Employee name: {{empReadone + firstname}}   {{empReadone + lastname}}   </p>
+   <p *ngIf="emp" class="emp"> Employee gender: {{empReadone + gender}} </p>
+   <p *ngIf="emp" class="emp"> Employee age: {{empReadone + age}} </p>
    <button class="delete" (click) = "Delete()">Hide</button>
  </div>
 
@@ -45,4 +45,3 @@
 </div>
 </div>
 </div>
--->
