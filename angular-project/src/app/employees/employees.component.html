@@ -1,29 +1,33 @@
 
 <div class="container">
-<h2> Employees </h2>
-<p class="info"> *In order to update the details of an employee press on his/her first name.</p>
-<input  #emp/><button (click)="Search(emp.value)">Search</button>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Firstname</th>
-      <th scope="col">Lastname</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let employee of employees">
-      <th scope="row">{{ employee.id }}</th>
-      <td><a class="link" routerLink="/detail/{{employee.id}}">{{ employee.firstname }}</a></td>
-      <td>{{ employee.lastname }}</td>
-      <td> <button class="delete" title="delete employee"
-      (click)="delete(employee)">delete</button></td>
-    </tr>
-  </tbody>
-</table>
-  <a class="addemployee" routerLink="/add"> Add a new Employee </a>
-</div>
+  <h2> Employees </h2>
+  <p class="info"> *In order to update the details of an employee press on his/her first name.</p>
+  <div class="search">
+    <input #emp onChange ="Search(this.value)">
+
+    <button class="searchbtn" (click)="Search(emp.value)">Search</button>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <th scope="row">{{ employee.id }}</th>
+        <td><a class="link" routerLink="/detail/{{employee.id}}">{{ employee.firstname }}</a></td>
+        <td>{{ employee.lastname }}</td>
+        <td> <button class="delete" title="delete employee"
+          (click)="delete(employee)">delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="addemployee" routerLink="/add"> Add a new Employee </a>
+  </div>
 
 
 

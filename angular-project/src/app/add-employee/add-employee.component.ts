@@ -31,14 +31,8 @@ export class AddEmployeeComponent implements OnInit {
     if(!age){return;}
     if(!gender){return;}
     if(!department){return;}
-    this.e.firstname = firstname;
-    this.e.lastname = lastname;
-    this.e.age = age;
-    this.e.gender = gender;
-    this.e.department = department;
-    console.log(this.e);
-    this.employeeService.addEmployee(firstname, lastname,age,gender,department);
-  }
+    this.employeeService.postEmps(firstname, lastname, age, gender, department).subscribe();
+ }
   goBack(): void{
     this.location.back();
   }

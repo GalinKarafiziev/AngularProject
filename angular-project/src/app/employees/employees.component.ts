@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Employees } from '../mock-employees';
 import { Employee } from '../employee';
-import { Delete } from '../delete';
 import { EmployeeService } from '../employee.service';
 import {Observable} from 'rxjs';
-
 
 
 @Component({
@@ -12,6 +10,7 @@ import {Observable} from 'rxjs';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.css']
 })
+
 export class EmployeesComponent implements OnInit {
   
   employees: Employee[];
@@ -24,7 +23,7 @@ export class EmployeesComponent implements OnInit {
   }
 
 
-   getEmps(): void {
+  getEmps(): void {
     this.employeeService.getEmps().
     subscribe(data => this.employees = data);
   }
@@ -34,8 +33,8 @@ export class EmployeesComponent implements OnInit {
   }
 
   delete(employee: Employee): void {
-  this.employees = this.employees.filter(e => e !== employee);
-  this.employeeService.deleteEmp(employee.id).subscribe();
+    this.employees = this.employees.filter(e => e !== employee);
+    this.employeeService.deleteEmp(employee.id).subscribe();
   }
 }
-   
+
