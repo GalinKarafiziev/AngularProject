@@ -6,7 +6,7 @@ import { Department } from '../department';
 import { DepartmentService }  from '../department.service';
 import { Departments } from '../departments';
 import { TodoService } from '../to-do/to-do.service';
-import { Todo } from 'src/app/todo';
+import { Todo } from '../todo';
 import { Observable, of } from "rxjs";
 
 @Component({
@@ -38,12 +38,12 @@ export class DashboardComponent implements OnInit {
     this.getTasks();
     this.getAvgAge(0);
     this.getNrEmp(0,0);
-    
+
     this.getDepartments();
     this.getNumDep();
     this.getDepEindhoven(0);
     this.getDepNotEindhoven(0);
-    
+
     this.getNrTasks();
     this.getDepartments();
   }

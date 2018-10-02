@@ -20,7 +20,7 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) {}
 
-  
+
   emp : Employee[] = Employees;
   private empReadOne = 'http://i380447.hera.fhict.nl/api_Web/employee/read_one.php?id=';
   private empRead = 'http://i380447.hera.fhict.nl/api_Web/employee/read.php';

@@ -1,5 +1,4 @@
-import { CustomApiService } from './../custom-api.service';
-import { ApiTask } from './task-api.service';
+
 import { Component, OnInit } from "@angular/core";
 import { TodoService } from "./to-do.service";
 import { Todo } from "../todo";
@@ -35,7 +34,7 @@ export class ToDoComponent implements OnInit {
     private service: TodoService,
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
-    public api: CustomApiService,
+
     private route: ActivatedRoute,
     public router: Router
      ) {
@@ -109,28 +108,6 @@ export class ToDoComponent implements OnInit {
 
   showEmployee(name: string): void{
     this.selectEmployee(name);
-  }
-
-  getTasksApi() {
-    this.tasks = [];
-    this.api.getTasks().subscribe((data: {}) => {
-      console.log(data);
-      this.tasks = data;
-    });
-  }
-
-  addTaskApi() {
-    this.router.navigate(['/todo-add']);
-  }
-
-  deleteTaskApi(id) {
-    this.api.deleteTask(id)
-      .subscribe(res => {
-          this.getTasks();
-        }, (err) => {
-          console.log(err);
-        }
-      );
   }
 
 

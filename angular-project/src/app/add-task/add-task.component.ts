@@ -1,4 +1,4 @@
-import { CustomApiService } from './../custom-api.service';
+
 import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TodoService } from "../to-do/to-do.service";
@@ -15,7 +15,7 @@ import { Employee } from "../employee";
 })
 export class AddTaskComponent implements OnInit {
 
-  @Input() taskData = { id :0 , task: '', employee: '', department: '' };
+
 
 
 
@@ -27,7 +27,7 @@ export class AddTaskComponent implements OnInit {
     private location: Location,
     private departmentService: DepartmentService,
     private employeeService: EmployeeService,
-    public api: CustomApiService,
+
     private router: Router,
   ) {}
 
@@ -36,13 +36,7 @@ export class AddTaskComponent implements OnInit {
     this.getEmployees();
   }
 
-  addTaskApi() {
-    this.api.addTask(this.taskData).subscribe((result) => {
-      this.router.navigate(['/product-details/'+result.id]);
-    }, (err) => {
-      console.log(err);
-    });
-  }
+
   add(task: string, department: string, employee: string): void {
     task = task.trim();
     department = department.trim();
@@ -70,7 +64,7 @@ export class AddTaskComponent implements OnInit {
 
   getEmployees(): void {
     this.employeeService
-      .getEmployees()
+      .getEmps()
       .subscribe(employees => (this.employees = employees));
   }
 }

@@ -1,4 +1,4 @@
-import { CustomApiService } from "./../custom-api.service";
+
 import { Component, OnInit } from "@angular/core";
 import { Input } from "@angular/core";
 import { TodoService } from "../to-do/to-do.service";
@@ -33,7 +33,6 @@ export class ToDoDetailComponent implements OnInit {
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
     private router: Router,
-    public api: CustomApiService
   ) {}
 
   ngOnInit() {
@@ -41,10 +40,7 @@ export class ToDoDetailComponent implements OnInit {
     this.getEmployees();
     this.getDepartments();
     this.getTasks();
-    this.api.getTask(this.route.snapshot.params["id"]).subscribe((data: {}) => {
-      console.log(data);
-      this.task = data;
-    });
+
   }
   getTask(): void {
     const id = +this.route.snapshot.paramMap.get("id");
@@ -66,7 +62,7 @@ export class ToDoDetailComponent implements OnInit {
 
   getEmployees(): void {
     this.employeeService
-      .getEmployees()
+      .getEmps()
       .subscribe(employees => (this.employees = employees));
   }
   selectDepartment(name: string) {
