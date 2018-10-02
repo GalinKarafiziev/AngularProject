@@ -54,7 +54,7 @@ firstname = firstname.trim();
    this.average = 1;
  }
  Show():void{
-   this.Select(this.department.employee); 
+   this.Select(this.department.employee);
    this.average = null;
  }
 

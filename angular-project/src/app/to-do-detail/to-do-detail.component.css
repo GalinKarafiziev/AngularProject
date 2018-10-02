@@ -1,0 +1,7 @@
+.task{
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  background-image:url('https://sites.wp.odu.edu/dunn440w/wp-content/uploads/sites/6375/2017/11/tasks.png');
+  margin: auto;
+}

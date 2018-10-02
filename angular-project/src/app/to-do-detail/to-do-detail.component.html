@@ -1,4 +1,24 @@
-<div *ngIf="todo">
-
-   <div><span>Id: </span>{{todo.idE}}</div><div><span>Task: </span>{{todo.task}}</div>
-</div>
+<div class="form-group">
+  <div>
+    <h2>Update Task</h2>
+    <form>
+      <p>Task:
+        <select #task class="Form">
+          <option *ngFor="let todo of todos" value="{{todo.task}}">{{todo.task}}</option>
+        </select>
+      </p>
+      <p>Department:
+        <select #department class="Form">
+          <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
+        </select>
+      </p>
+      <p>Employee:
+        <select #employee class="Form">
+          <option *ngFor="let employee of employees" value="{{employee.firstname}}">{{employee.firstname}}</option>
+        </select>
+      </p>
+      <span>
+        <button class="btn btn-dark" (click)="goBack()" (click)="save()">Update</button>
+      </span>
+    </form>
+  </div>

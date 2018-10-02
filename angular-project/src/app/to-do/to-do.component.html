@@ -1,16 +1,17 @@
 
-<table class="table table-bordered">
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Task</th>
       <th scope="col">Department</th>
       <th scope="col">Employee</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tr *ngFor="let todo of todos | taskfilter : searchTask" [class.selected]="todo === selectedTask" (click)="onSelect(todo)">
     <td>
-      <span>{{todo.idE}}</span>
+      <span (click)="showTask(todo.idE)">{{todo.idE}}</span>
     </td>
     <td><span>{{todo.task}}</span>
     </td>
@@ -21,14 +22,31 @@
 
   </tr>
 </table>
-<button type="button" class="btn btn-dark"><a class="addemployee" routerLink="/addtask"> Add a new Task </a></button>
+
+<ul class="tasks">
+  <li *ngFor="let task of tasks; let i=index;">
+    <a routerLink="/todo-details/{{task.id}}">
+      <span class="badge">{{i+1}}</span> {{task.task}}
+    </a>
+    <button class="delete" title="delete task"
+      (click)="deleteTaskApi(task.id)">x</button>
+  </li>
+</ul>
+<div class="button1">
+<button type="button" class="btn btn-dark"><a class="addtask" routerLink="/addtask"> Add a new Task </a></button>
+</div>
 <br>
+<div class="button2">
+<button type="button"  class="btn btn-dark"><a class="taskdetail" routerLink="/taskdetail">Update</a></button>
+<div>
 <br>
 <div class="searchTask">
   <p class="search">Search a task:</p>
   <input [(ngModel)]="searchTask" placeholder="Task">
   </div>
-<div *ngIf="depart != null">
+  <br>
+  <br>
+<div class="departments" *ngIf="depart != null">
   <label>Dep ID:</label> {{depart.id}}
   <br>
   <br>
@@ -40,16 +58,34 @@
   <br>
 </div>
 
-<div *ngIf="employee != null">
+<div class = "employees" *ngIf="employee != null">
+  <h4><label>Details of </label> {{employee.firstname}}</h4>
+  <br>
+
   <label>Employee ID:</label> {{employee.id}}
   <br>
   <br>
   <label>First Name:</label> {{employee.firstname}}
   <br>
   <br>
-  <label>Last Name:</label> {{employee.lastname}}
+  <label>Age:</label> {{employee.age}}
   <br>
   <br>
 </div>
 
-<app-to-detail [todo]="selectedTask"></app-to-detail>
+<div class= "task" *ngIf="todo">
+    <h4><label>Details of Task with ID: </label> {{todo.idE}}</h4>
+    <br>
+    <label>Task: </label> {{todo.task}}
+    <br>
+    <br>
+    <label>Assigned employee: </label> {{todo.employee}}
+    <br>
+    <br>
+    <label>From department: </label> {{todo.department}}
+    <br>
+    <br>
+</div>
+
+
+

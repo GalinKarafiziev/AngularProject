@@ -12,9 +12,12 @@ import { Employee } from '../employee';
 
 export class TodoService
 {
+  task: Todo;
+  todoServ: TodoService;
   todoTasks: Todo[] = [];
   empServ: EmployeeService;
   employee: Employee;
+
 
   constructor(){
     this.todoTasks = this.mockToArray();
@@ -42,6 +45,13 @@ deleteTask(task: Todo): void{
 
    this.todoTasks.forEach( (item, index) => {
    if(item === task) this.todoTasks.splice(index,1);});
+  console.log (this.todoTasks);
+}
+
+updateTask(newTask: Todo): void{
+  console.log (this.todoTasks);
+  let oldTask = this.todoTasks.find(task => task.task === newTask.task)
+    oldTask = newTask;
   console.log (this.todoTasks);
 }
 

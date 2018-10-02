@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -21,16 +22,15 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import {DepFilterPipe } from  './departments/dep-filter.pipe';
 <<<<<<< HEAD
 import { TaskFilterPipe } from './to-do/task.pipe';
-=======
-import { HttpClientModule }    from '@angular/common/http';
->>>>>>> master
+import { TaskEditComponent } from './task-edit/task-edit.component';
+import { Routes } from '@angular/router';
+
 
 @NgModule({
    imports: [
    AppRoutingModule,
     BrowserModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
 
   ],
   declarations: [
@@ -46,7 +46,8 @@ import { HttpClientModule }    from '@angular/common/http';
     DashboardComponent,
     AddTaskComponent,
     DepFilterPipe,
-    TaskFilterPipe
+    TaskFilterPipe,
+    TaskEditComponent,
 
   ],
   providers: [TodoService],

@@ -1,0 +1,39 @@
+.employees{
+  width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    float: left;
+    background-image: url('https://atmanco.com/wp-content/uploads/2015/11/embrace-the-salesperson.png');
+}
+
+.departments{
+  width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    float: right;
+    background-image: url('https://auselt.files.wordpress.com/2013/08/jigsaw_peoplesmll.jpg');
+}
+
+.table{
+	width:90%;
+	height:200px;
+	border:solid;
+	margin: 15px;
+	margin-top: 10px;
+
+}
+th, td {
+    padding: 7px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.task{
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  background-image:url('https://sites.wp.odu.edu/dunn440w/wp-content/uploads/sites/6375/2017/11/tasks.png');
+  margin: auto;
+}
+
+

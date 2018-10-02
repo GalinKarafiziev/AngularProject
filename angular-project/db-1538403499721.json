@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "task": "Go find Mark",
+      "employee": "John",
+      "department": "ASAI"
+    },
+    {
+      "id": 2,
+      "task": "Go kill a vampire",
+      "employee": "John",
+      "department": "ASAI"
+    },
+    {
+      "id": 3,
+      "task": "Go mix a potion",
+      "employee": "Cira",
+      "department": "BACID"
+    }
+  ]
+}

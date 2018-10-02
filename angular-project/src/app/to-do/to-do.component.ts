@@ -1,3 +1,5 @@
+import { CustomApiService } from './../custom-api.service';
+import { ApiTask } from './task-api.service';
 import { Component, OnInit } from "@angular/core";
 import { TodoService } from "./to-do.service";
 import { Todo } from "../todo";
@@ -6,6 +8,9 @@ import { EmployeeService } from "../employee.service";
 import { Employee } from "../employee";
 import { DepartmentService } from "../department.service";
 import { Department } from "../department";
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 
 @Component({
   selector: "todo",
@@ -19,14 +24,21 @@ export class ToDoComponent implements OnInit {
   employees: Employee[];
   departments: Department[];
   depart: Department;
+  todo: Todo;
   employee: Employee;
   searchTask: string;
+  tasks: any = [];
+
+
 
   constructor(
     private service: TodoService,
     private employeeService: EmployeeService,
-    private departmentService: DepartmentService
-  ) {
+    private departmentService: DepartmentService,
+    public api: CustomApiService,
+    private route: ActivatedRoute,
+    public router: Router
+     ) {
     this.todos = service.todoTasks;
   }
 
@@ -69,6 +81,19 @@ export class ToDoComponent implements OnInit {
     });
   }
 
+  selectTask(id: number) {
+    var context = this;
+    this.service.getTask(id).subscribe(function(todo) {
+      context.todo = todo;
+      console.log(todo);
+      console.log(name);
+    });
+  }
+
+  showTask(id: number){
+    this.selectTask(id);
+  }
+
   show(name: string): void {
     this.selectDepartment(name);
   }
@@ -85,4 +110,28 @@ export class ToDoComponent implements OnInit {
   showEmployee(name: string): void{
     this.selectEmployee(name);
   }
+
+  getTasksApi() {
+    this.tasks = [];
+    this.api.getTasks().subscribe((data: {}) => {
+      console.log(data);
+      this.tasks = data;
+    });
+  }
+
+  addTaskApi() {
+    this.router.navigate(['/todo-add']);
+  }
+
+  deleteTaskApi(id) {
+    this.api.deleteTask(id)
+      .subscribe(res => {
+          this.getTasks();
+        }, (err) => {
+          console.log(err);
+        }
+      );
+  }
+
+
 }
