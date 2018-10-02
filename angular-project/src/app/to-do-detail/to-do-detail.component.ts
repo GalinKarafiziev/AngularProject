@@ -49,7 +49,7 @@ this.todoService.getTask(id).subscribe(task => this.todo = task);
   }
 
   getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
+    this.employeeService.getEmps().subscribe(employees => this.employees = employees);
   }
   selectDepartment(name: string) {
     var context = this;

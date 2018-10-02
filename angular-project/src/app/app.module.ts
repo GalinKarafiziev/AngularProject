@@ -19,13 +19,18 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import {DepFilterPipe } from  './departments/dep-filter.pipe';
+<<<<<<< HEAD
 import { TaskFilterPipe } from './to-do/task.pipe';
+=======
+import { HttpClientModule }    from '@angular/common/http';
+>>>>>>> master
 
 @NgModule({
    imports: [
    AppRoutingModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
   declarations: [

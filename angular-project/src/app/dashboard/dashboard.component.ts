@@ -34,17 +34,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getEmployees();
+    this.getNrEmployees();
     this.getTasks();
     this.getAvgAge(0);
-    this.getNrEmployees();
     this.getNrEmp(0,0);
     
     this.getDepartments();
     this.getNumDep();
     this.getDepEindhoven(0);
     this.getDepNotEindhoven(0);
-    
-    
     
     this.getNrTasks();
     this.getDepartments();
@@ -74,11 +72,9 @@ export class DashboardComponent implements OnInit {
 
     this.notEindhoven = other;
   }
-
-
   getEmployees(): void {
-  	this.employeeService.getEmployees().
-  	subscribe(employees => this.employees = employees);
+  	this.employeeService.getEmps().
+    subscribe(data => this.employees = data);
   }
   getNrEmployees():void{
   	this.numberEmployees = this.employees.length;
