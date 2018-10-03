@@ -16,8 +16,6 @@
 	text-align: center;
 }
 .empinfo{
-	border:solid black 3px;
-	border-radius: 20px;
 	width: 250px;
 	height: 160px;
 	text-align: center;
@@ -26,8 +24,6 @@
 	color:darkblue;
 	font-size: 17px;
 	margin-left: 110px;
-
-
 }
 
 .depinfo{
@@ -108,4 +104,16 @@ display: inline-block;
 }
 .nrdep{
 	margin-top:17px;
+}
+table {
+	margin-top: 13px;
+	margin-left: 25px;
+	font-size: 20px;
+	color: black;
+}
+table tr td{
+border: 2px solid black;
+padding: 3px;
+padding-left: 15px;
+padding-right:15px;
 }

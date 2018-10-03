@@ -34,12 +34,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getEmployees();
-    this.getNrEmployees();
+    //this.getNrEmployees();
     this.getTasks();
-    this.getAvgAge(0);
-    this.getNrEmp(0,0);
+    //this.getAvgAge(0);
+    //this.getNrEmp(0,0);
 
-    this.getDepartments();
+   this.getDepartments();
     this.getNumDep();
     this.getDepEindhoven(0);
     this.getDepNotEindhoven(0);

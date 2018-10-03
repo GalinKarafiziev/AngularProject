@@ -8,10 +8,17 @@
 <ul class="info">
 	<li>
 		<div class = "empinfo">
-			<p class="empnr"><span class="label">Numbers of Employees: </span>{{numberEmployees}} </p>
+			<!--<p class="empnr"><span class="label">Numbers of Employees: </span>{{numberEmployees}} </p>
 			<p> <span class="label">Average age of Employees:</span>  {{avgAge}}</p>
 			<p> <span class="label">Number of female Employees:</span> {{femaleEmployee}}</p>
-			<p> <span class="label">Number of male Employees:</span> {{maleEmployee}}</p>
+			<p> <span class="label">Number of male Employees:</span> {{maleEmployee}}</p>-->
+			<table>
+				
+			<tr *ngFor="let employee of employees">
+			<td>{{employee.firstname}}</td>
+			<td>{{employee.lastname}}</td>
+		</tr>
+		</table>
 		</div>
 	</li>
 	<li>
@@ -30,4 +37,5 @@
 
 	</li>
 </ul>
+ 
 
