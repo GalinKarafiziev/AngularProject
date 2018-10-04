@@ -1,0 +1,19 @@
+{
+  "departments": [
+    {
+      "id": 2,
+      "name": "AMC",
+      "location": "Eindhoven"
+    },
+    {
+      "id": 3,
+      "name": "AMC",
+      "location": "Amsterdam"
+    },
+    {
+      "id": 1,
+      "name": "ASAI",
+      "location": "Eindhoven"
+    }
+  ]
+}

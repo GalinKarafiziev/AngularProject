@@ -20,11 +20,13 @@ export class DepartmentsComponent implements OnInit {
   }
 
   getDepartments(): void {
-    this.departmentService.getDepartments().
-    subscribe(departments => this.departments = departments);
+  //  this.departmentService.getDepartments().
+  //  subscribe(departments => this.departments = departments);
+  this.departmentService.getDepartments().
+  subscribe(data => this.departments = data);
   }
   delete(department: Department): void {
     this.departments = this.departments.filter(d => d !== department);
-    this.departmentService.deleteDepartment(department);
+    this.departmentService.deleteDepartment(department.id).subscribe();
   }
 }
