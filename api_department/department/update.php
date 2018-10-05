@@ -28,14 +28,14 @@ $department->name = $data->name;
 $department->location = $data->location;
 
 
-// update the department
-if($product->update()){
+// update the employee
+if($department->update()){
     echo '{';
         echo '"message": "Department was updated."';
     echo '}';
 }
 
-// if unable to update the department, tell the user
+// if unable to update the employee, tell the user
 else{
     echo '{';
         echo '"message": "Unable to update department."';

@@ -30,7 +30,7 @@ export class DepartmentDetailComponent implements OnInit {
   getEmp(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.employeeService.getEmp(id).
-    subscribe(data => this.employee = data);
+    subscribe(data => this.emp = data);
   }
 
   getDepartment(): void{
@@ -52,7 +52,7 @@ export class DepartmentDetailComponent implements OnInit {
   Select(firstname:string){
    if(!firstname){ return; }
 firstname = firstname.trim();
-   this.employeeService.getEmployeeByName(firstname).subscribe(Employee => this.emp = Employee);
+   this.employeeService.getEmployeeByName(firstname).subscribe(e => this.emp= e);
  }
 
   Delete():void{

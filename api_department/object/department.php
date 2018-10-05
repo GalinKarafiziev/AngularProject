@@ -152,6 +152,7 @@ function search($keywords){
     return $stmt;
 }
 // update the department
+
 function update(){
 
     // update query
@@ -174,6 +175,7 @@ function update(){
     // bind new values
     $stmt->bindParam(':name', $this->name);
     $stmt->bindParam(':location', $this->location);
+      $stmt->bindParam(':id', $this->id);
 
 
     // execute the query

@@ -24,7 +24,7 @@ export class DepartmentService {
 private depRead = 'http://i378011.hera.fhict.nl/api_department/department/read.php';
 private depReadOne = 'http://i378011.hera.fhict.nl/api_department/department/read_one.php?id=';
 private depCreate = 'http://i378011.hera.fhict.nl/api_department/department/create.php';
-private depUpdate = 'http://i378011.hera.fhict.nl/api_department/department/updae.php';
+private depUpdate = 'http://i378011.hera.fhict.nl/api_department/department/update.php';
 private depDelete = 'http://i378011.hera.fhict.nl/api_department/department/delete.php?id=';
 private depSearch = 'http://i378011.hera.fhict.nl/api_department/department/search.php?s=';
 
@@ -51,7 +51,7 @@ private depSearch = 'http://i378011.hera.fhict.nl/api_department/department/sear
 
     updateDepartment(dep: Department):Observable<any>{
 
-    	  return this.http.put(this.depUpdate,dep,httpOptions);
+    	  return this.http.post(this.depUpdate,dep,httpOptions);
     }
 
     addDepartment (name:string, location:string):Observable<any> {

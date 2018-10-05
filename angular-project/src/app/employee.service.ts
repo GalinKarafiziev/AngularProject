@@ -57,7 +57,7 @@ export class EmployeeService {
         httpOptions);
   }
   getEmployeeByName(firstname:string) : Observable<Employee>{
-  //  return of (this.emp.find(employee => employee.firstname === firstname))
-    return this.http.get<Employee>(this.empReadOne  )
+  // return of (this.emp.find(employee => employee.firstname === firstname))
+   return this.http.get<Employee>(this.empRead  )
   }
 }
