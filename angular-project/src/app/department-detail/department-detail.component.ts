@@ -22,20 +22,20 @@ export class DepartmentDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location, private departmentService: DepartmentService) { }
 
   ngOnInit() {
-    //this.getEmployee();
+  	//this.getEmployee();
     this.getEmployees();
     this.getDepartment();
   }
 
-  getDep(): void {
+  getEmp(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.departmentService.getDepartment(id).
-    subscribe(data => this.department = data);
+    this.employeeService.getEmp(id).
+    subscribe(data => this.employee = data);
   }
 
   getDepartment(): void{
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.departmentService.getDepartments().subscribe(department => this.department = department)
+  	const id = +this.route.snapshot.paramMap.get('id');
+  	this.departmentService.getDepartment(id).subscribe(department => this.department = department)
   }
 
   goBack(): void{
@@ -50,10 +50,11 @@ export class DepartmentDetailComponent implements OnInit {
     subscribe(employees => this.employees = employees);
   }
   Select(firstname:string){
-    firstname =firstname.trim();
-    if(!firstname){return;}
-    this.employeeService.getEmployeeByName(firstname).subscribe(Employee => this.emp = Employee);
-  }
+   if(!firstname){ return; }
+firstname = firstname.trim();
+   this.employeeService.getEmployeeByName(firstname).subscribe(Employee => this.emp = Employee);
+ }
+
   Delete():void{
     this.emp = null;
     this.average = 1;
