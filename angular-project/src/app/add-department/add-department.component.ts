@@ -18,21 +18,18 @@ employees : Employee[];
   ngOnInit() {
     this.getEmployees();
   }
-  add(depName: string, location: string): void {
-    depName = depName.trim();
+  add(name: string, location: string): void {
+    name = name.trim();
     location = location.trim();
 
-
-    if(!depName){return;}
+    if(!name){return;}
     if(!location){return;}
 
-
-        this.departmentService.addDepartment(depName, location);
-  }
+    this.departmentService.addDepartment(name, location).subscribe();
+ }
   goBack(): void{
     this.location.back();
   }
-
   getEmployees(): void {
     this.employeeService.getEmps().
     subscribe(employees => this.employees = employees);

@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Department } from '../department';
 import { Employee } from '../employee';
 import { DepartmentService }  from '../department.service';
+import {Observable} from 'rxjs';
 import { EmployeeService }  from '../employee.service';
 @Component({
   selector: 'app-department-detail',
@@ -18,45 +19,47 @@ export class DepartmentDetailComponent implements OnInit {
   average:number=1;
 
 
-  constructor(private route: ActivatedRoute, private departmentService: DepartmentService, private location: Location,private employeeService: EmployeeService) { }
+  constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location, private departmentService: DepartmentService) { }
 
   ngOnInit() {
-  	this.getDepartment();
-
+    //this.getEmployee();
     this.getEmployees();
+    this.getDepartment();
   }
+
+  getDep(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.departmentService.getDepartment(id).
+    subscribe(data => this.department = data);
+  }
+
   getDepartment(): void{
-  	const id = +this.route.snapshot.paramMap.get('id');
-  	this.departmentService.getDepartment(id).subscribe(department => this.department = department)
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.departmentService.getDepartments().subscribe(department => this.department = department)
   }
 
   goBack(): void{
     this.location.back();
   }
   save(): void {
-   this.departmentService.updateDepartment(this.department);
+   this.departmentService.updateDepartment(this.department).subscribe();
    this.goBack();
  }
-
- getEmployees(): void {
-   this.employeeService.getEmps().
-   subscribe(employees => this.employees = employees);
- }
-
- Select(firstname:string){
-   if(!firstname){ return; }
-firstname = firstname.trim();
-   this.employeeService.getEmployeeByName(firstname).subscribe(Employee => this.emp = Employee);
- }
-
- Delete():void{
-   this.emp = null;
-   this.average = 1;
- }
- Show():void{
-   this.Select(this.department.employee);
-   this.average = null;
- }
-
-
+  getEmployees(): void {
+    this.employeeService.getEmps().
+    subscribe(employees => this.employees = employees);
+  }
+  Select(firstname:string){
+    firstname =firstname.trim();
+    if(!firstname){return;}
+    this.employeeService.getEmployeeByName(firstname).subscribe(Employee => this.emp = Employee);
+  }
+  Delete():void{
+    this.emp = null;
+    this.average = 1;
+  }
+  Show():void{
+    this.Select(this.department.employee);
+    this.average = null;
+  }
 }

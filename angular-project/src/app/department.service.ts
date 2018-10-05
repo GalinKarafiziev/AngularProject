@@ -48,17 +48,16 @@ private depSearch = 'http://i378011.hera.fhict.nl/api_department/department/sear
       return of(this.dep.find(department => department.name === name));
     }
 
-    updateDepartment(newDepartment: Department): void{
-    	console.log (this.dep);
-      let oldDep = this.dep.find(department => department.id === newDepartment.id)
-       oldDep = newDepartment;
-      console.log (this.dep);
+    updateDepartment(dep: Department):Observable<any>{
+
+    	  return this.http.put(this.depUpdate,dep,httpOptions);
     }
 
-    addDepartment (name:string, location:string): void {
-    	console.log (this.dep);
-    	this.dep.push(new Department(name,location));
-    	console.log (this.dep);
+    addDepartment (name:string, location:string):Observable<any> {
+      return this.http.post(this.depCreate,{
+            "name": name,
+            "location": location},
+            httpOptions);
     }
 
 

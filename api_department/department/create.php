@@ -33,8 +33,9 @@ if($department->create()){
 
 // if unable to create the department, tell the user
 else{
+
     echo '{';
-        echo '"message": "Unable to create department."';
+        echo '"message": "Unable to create department.  "';
     echo '}';
 }
 ?>

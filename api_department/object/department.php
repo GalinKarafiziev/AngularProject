@@ -71,11 +71,15 @@ function create(){
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET
-                name=:name,location=:location";
+        (name,location)    values (
+                :name,:location)";
+
+                echo $query;
 
     // prepare query
     $stmt = $this->conn->prepare($query);
+    if (!$stmt)
+      var_dump($this->conn->errorInfo());
 
     // sanitize
     $this->name=htmlspecialchars(strip_tags($this->name));
@@ -93,7 +97,7 @@ function create(){
     if($stmt->execute()){
         return true;
     }
-
+var_dump($this->conn->errorInfo());
     return false;
 
 }
