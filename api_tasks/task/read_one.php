@@ -7,7 +7,7 @@ header('Content-Type: application/json');
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/task.php';
+include_once '../object/task.php';
  
 // get database connection
 $database = new Database();

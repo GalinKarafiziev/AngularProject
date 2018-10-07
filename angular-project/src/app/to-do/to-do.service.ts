@@ -1,27 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Todo } from '../todo';
 import { Observable, of } from 'rxjs';
-import { EmployeeService } from '../employee.service';
-import { Employee } from '../employee';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Headers, RequestOptions } from '@angular/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+  'Content-Type':  'application/json',
+  'Authorization': 'my-auth-token'
+ })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 
-
-
 export class TodoService
 {
-  task: Todo;
-  todoServ: TodoService;
-  todoTasks: Todo[] = [];
-  empServ: EmployeeService;
-  employee: Employee;
 
 
-  constructor(){
-    this.todoTasks = this.mockToArray();
+
+  constructor(private http: HttpClient){
+
   }
+  todoTasks: Todo[] = [];
+  private taskReadOne = 'http://i380935.hera.fhict.nl/task/read_one.php?id=';
+  private taskRead = 'http://i380935.hera.fhict.nl/task/read.php';
+  private taskAdd = 'http://i380935.hera.fhict.nl/task/create.php';
+  private taskUpdate = 'http://i380935.hera.fhict.nl/task/update.php';
+  private taskSearch = 'http://i380935.hera.fhict.nl/task/search.php?s=';
+  private taskDelete = 'http://i380935.hera.fhict.nl/task/delete.php?id=';
 
   mockToArray() {
   this.todoTasks.push(new Todo("Write C", "ASAI", "John"));
@@ -29,30 +37,33 @@ export class TodoService
   return this.todoTasks;
 }
 getTasks(): Observable<Todo[]>{
-  return of (this.todoTasks);
+  return this.http.get<Todo[]>(this.taskRead);
 }
 getTask(id: number): Observable<Todo>{
-  return of (this.todoTasks.find(task => task.idE === id));
+  return this.http.get<Todo>(this.taskReadOne + id);
 }
 
-addTask (task: string, department:string, employee: string): void {
-  console.log (this.todoTasks);
-  this.todoTasks.push(new Todo(task, department, employee));
-  console.log (this.todoTasks);
+addTask (task: string, department:string, employee: string): Observable<any> {
+  return this.http.post(this.taskAdd,{
+    "task": task,
+    "employee": employee,
+    "department": department},
+    httpOptions);
 }
-deleteTask(task: Todo): void{
-  console.log (this.todoTasks);
-
-   this.todoTasks.forEach( (item, index) => {
-   if(item === task) this.todoTasks.splice(index,1);});
-  console.log (this.todoTasks);
+deleteTask(id: number): Observable<Todo> {
+  return this.http.get<Todo>(this.taskDelete + id);
 }
 
-updateTask(newTask: Todo): void{
-  console.log (this.todoTasks);
-  let oldTask = this.todoTasks.find(task => task.task === newTask.task)
-    oldTask = newTask;
-  console.log (this.todoTasks);
+updateTask(task: Todo): Observable<any>{
+  return this.http.post(this.taskUpdate, task, httpOptions);
+}
+
+searchTask(s: string): Observable<Todo[]>{
+  return this.http.get<Todo[]>(this.taskSearch + s);
+}
+
+getName(name: string) : Observable<Todo>{
+  return this.http.get<Todo>(this.taskRead);
 }
 
 

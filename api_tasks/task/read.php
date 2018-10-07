@@ -7,7 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../config/database.php';
 include_once '../object/task.php';
  
-// instantiate database and employee object
+// instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
  
@@ -21,12 +21,12 @@ $num = $stmt->rowCount();
 // check if more than 0 record found
 if($num>0){
  
-    // employees array
+    // products array
     $task_arr=array();
-    //$employees_arr["records"]=array();
  
     // retrieve our table contents
-
+    // fetch() is faster than fetchAll()
+    // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         // extract row
         // this will make $row['name'] to
@@ -34,10 +34,10 @@ if($num>0){
         extract($row);
  
         $task_item=array(
-            "id" => intval($id),
+            "id" => $id,
             "task" => $task,
             "employee" => $employee,
-            "department" =>$department
+            "department" => $department,
         );
  
         array_push($task_arr, $task_item);
@@ -48,7 +48,7 @@ if($num>0){
  
 else{
     echo json_encode(
-        array("message" => "No tasks found.")
+        array("message" => "No products found.")
     );
 }
 ?>

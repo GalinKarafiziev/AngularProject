@@ -43,8 +43,8 @@ export class ToDoDetailComponent implements OnInit {
 
   }
   getTask(): void {
-    const id = +this.route.snapshot.paramMap.get("id");
-    this.todoService.getTask(id).subscribe(task => (this.todo = task));
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.todoService.getTask(id).subscribe(data => this.todo = data);
   }
 
   goBack(): void {

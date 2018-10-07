@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/task.php';
+include_once '../object/task.php';
  
 // instantiate database and product object
 $database = new Database();
@@ -26,7 +26,7 @@ if($num>0){
  
     // products array
     $task_arr=array();
-    $task_arr["records"]=array();
+    //$task_arr["records"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -44,7 +44,7 @@ if($num>0){
             "department" => $department,
         );
  
-        array_push($task_arr["records"], $task_item);
+        array_push($task_arr, $task_item);
     }
  
     echo json_encode($task_arr);

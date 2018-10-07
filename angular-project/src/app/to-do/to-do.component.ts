@@ -38,12 +38,11 @@ export class ToDoComponent implements OnInit {
     private route: ActivatedRoute,
     public router: Router
      ) {
-    this.todos = service.todoTasks;
+
   }
 
   ngOnInit() {
-    this.getDepartments();
-    this.getEmployees();
+    this.getTasks();
   }
 
   onSelect(todo: Todo): void {
@@ -51,12 +50,16 @@ export class ToDoComponent implements OnInit {
   }
 
   getTasks(): void {
-    this.service.getTasks();
+    this.service.getTasks().subscribe(data => this.todos = data);
   }
 
   delete(task: Todo): void {
     this.todos = this.todos.filter(t => t !== task);
-    this.service.deleteTask(task);
+    this.service.deleteTask(task.idE).subscribe();
+  }
+
+  search(s: string): void{
+    this.service.searchTask(s).subscribe(data => this.tasks = data);
   }
 
   getDepartments(): void {
