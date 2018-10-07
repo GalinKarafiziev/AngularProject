@@ -97,24 +97,9 @@ export class DashboardComponent implements OnInit {
         else {
             Observable.throw("Error: Service didn't return an object");  // ;If you're using rxjs <6
             // If you're using rxjs6
-        }
-  }
+      }
+    });
 }
-
-  getAvgAge(age:number):void{
-  	this.employees.forEach(function(employee){
-  		age +=  employee.age;
-  	});
-  	this.avgAge = Math.round(age/this.employees.length);
-  }
-  getNrEmp(male:number, female:number):void{
-  	this.employees.forEach(function(employee){
-  		if(employee.gender == 'Male'){male += 1;}
-  		if(employee.gender == 'Female'){female += 1;}
-  	});
-  	this.femaleEmployee = female;
-  	this.maleEmployee = male;
-  }
 
   getNrTasks():void{
     this.numberTasks = this.tasks.length;
