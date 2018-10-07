@@ -42,8 +42,8 @@ export class DashboardComponent implements OnInit {
 
    this.getDepartments();
 
-    this.getDepEindhoven(0);
-    this.getDepNotEindhoven(0);
+  //  this.getDepEindhoven(0);
+  //  this.getDepNotEindhoven(0);
 
     this.getNrTasks();
     this.getDepartments();
