@@ -18,8 +18,8 @@ import { throwError } from 'rxjs';
 export class DashboardComponent implements OnInit {
   employees: Employee[];
   numberEmployees: number;
-  femaleEmployee: number ;
-  maleEmployee: number;
+  female: number ;
+  male: number;
   avgAge: number;
 
   departments: Department[];
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getEmployees();
-    //this.getNrEmployees();
+    this.getNrEmployees();
     this.getTasks();
     //this.getAvgAge(0);
     //this.getNrEmp(0,0);
@@ -86,8 +86,20 @@ export class DashboardComponent implements OnInit {
     subscribe(data => this.employees = data);
   }
   getNrEmployees():void{
-  	this.numberEmployees = this.employees.length;
+  	this.employeeService.getEmps().
+    subscribe(employees => {
+        if (employees) {
+            this.employees = employees;
+            this.numberEmployees = employees.length;
+            this.male = employees.filter(emp => emp.gender == 'Male').length;
+            this.female = employees.filter(emp => emp.gender == 'Female').length;
+        }
+        else {
+            Observable.throw("Error: Service didn't return an object");  // ;If you're using rxjs <6
+            // If you're using rxjs6
+        }
   }
+}
 
   getAvgAge(age:number):void{
   	this.employees.forEach(function(employee){

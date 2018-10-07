@@ -25,7 +25,7 @@ function read(){
             FROM
                 " . $this->table_name . " t
             ORDER BY
-                t.ID";
+                t.id";
  
     // prepare query statement
     $stmt = $this->conn->prepare($query);

@@ -23,7 +23,9 @@
 	margin-top: 5%;
 	color:darkblue;
 	font-size: 17px;
-	margin-left: 110px;
+	margin-left: 100px;
+	border:solid black 3px;
+	border-radius: 20px;
 }
 
 .depinfo{

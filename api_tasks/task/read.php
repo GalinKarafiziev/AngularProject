@@ -37,7 +37,7 @@ if($num>0){
             "id" => intval($id),
             "task" => $task,
             "employee" => $employee,
-            "department" =>$department,
+            "department" =>$department
         );
  
         array_push($task_arr, $task_item);
