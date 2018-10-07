@@ -57,6 +57,8 @@ export class DashboardComponent implements OnInit {
         if (departments) {
             this.departments = departments;
             this.depNumber = departments.length;
+            this.notEindhoven = departments.filter(dep => dep.location !== 'Eindhoven').length;
+            this.inEindhoven = departments.filter(dep => dep.location == 'Eindhoven').length;
         }
         else {
             Observable.throw("Error: Service didn't return an object");  // ;If you're using rxjs <6
@@ -65,23 +67,20 @@ export class DashboardComponent implements OnInit {
     });
 }
 
-  getDepEindhoven(loc:number):void{
-    this.departmentService.getDepartments().
-    subscribe(departments => {
-      if(department.location == 'Eindhoven'){loc += 1;}
-    });
+//  getDepEindhoven(loc:number):void{
+//    this.departmentService.getDepartments().
+//    subscribe(departments => {
+//      if(department.location == 'Eindhoven'){loc += 1;}
+//
+//  }
+  //getDepNotEindhoven(other:number):void{
+  //  this.departmentService.getDepartments().
+  //  subscribe(departments =>{
+//      if(department.location != 'Eindhoven'){other += 1;}
 
-    this.inEindhoven = loc;
-  }
-  getDepNotEindhoven(other:number):void{
-    this.departmentService.getDepartments().
-    subscribe(departments => {
-      if(department.location != 'Eindhoven'){other += 1;}
-
-    });
-
-    this.notEindhoven = other;
-  }
+//
+  //  this.notEindhoven = other;
+//  }
   getEmployees(): void {
   	this.employeeService.getEmps().
     subscribe(data => this.employees = data);
