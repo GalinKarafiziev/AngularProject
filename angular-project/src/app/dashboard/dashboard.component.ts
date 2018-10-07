@@ -8,6 +8,7 @@ import { Departments } from '../departments';
 import { TodoService } from '../to-do/to-do.service';
 import { Todo } from '../todo';
 import { Observable, of } from "rxjs";
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -40,7 +41,7 @@ export class DashboardComponent implements OnInit {
     //this.getNrEmp(0,0);
 
    this.getDepartments();
-    this.getNumDep();
+
     this.getDepEindhoven(0);
     this.getDepNotEindhoven(0);
 
@@ -52,20 +53,29 @@ export class DashboardComponent implements OnInit {
   }
   getDepartments(): void {
     this.departmentService.getDepartments().
-    subscribe(departments => this.departments = departments);
-  }
-  getNumDep():void{
-    this.depNumber = this.departments.length;
-  }
+    subscribe(departments => {
+        if (departments) {
+            this.departments = departments;
+            this.depNumber = departments.length;
+        }
+        else {
+            Observable.throw("Error: Service didn't return an object");  // ;If you're using rxjs <6
+            // If you're using rxjs6
+        }
+    });
+}
+
   getDepEindhoven(loc:number):void{
-    this.departments.forEach(function(department){
+    this.departmentService.getDepartments().
+    subscribe(departments => {
       if(department.location == 'Eindhoven'){loc += 1;}
     });
 
     this.inEindhoven = loc;
   }
   getDepNotEindhoven(other:number):void{
-    this.departments.forEach(function(department){
+    this.departmentService.getDepartments().
+    subscribe(departments => {
       if(department.location != 'Eindhoven'){other += 1;}
 
     });
