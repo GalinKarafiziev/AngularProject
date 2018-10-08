@@ -31,11 +31,7 @@ export class TodoService
   private taskSearch = 'http://i380935.hera.fhict.nl/task/search.php?s=';
   private taskDelete = 'http://i380935.hera.fhict.nl/task/delete.php?id=';
 
-  mockToArray() {
-  this.todoTasks.push(new Todo("Write C", "ASAI", "John"));
-  this.todoTasks.push(new Todo("Hire specialist", "ASAI", "John"));
-  return this.todoTasks;
-}
+
 getTasks(): Observable<Todo[]>{
   return this.http.get<Todo[]>(this.taskRead);
 }
@@ -54,8 +50,8 @@ deleteTask(id: number): Observable<Todo> {
   return this.http.get<Todo>(this.taskDelete + id);
 }
 
-updateTask(task: Todo): Observable<any>{
-  return this.http.post(this.taskUpdate, task, httpOptions);
+updateTask(todo: Todo): Observable<any>{
+  return this.http.post(this.taskUpdate, todo, httpOptions);
 }
 
 searchTask(s: string): Observable<Todo[]>{

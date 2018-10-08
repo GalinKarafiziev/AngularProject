@@ -32,7 +32,7 @@ export class ToDoDetailComponent implements OnInit {
     private location: Location,
     private employeeService: EmployeeService,
     private departmentService: DepartmentService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -40,11 +40,10 @@ export class ToDoDetailComponent implements OnInit {
     this.getEmployees();
     this.getDepartments();
     this.getTasks();
-
   }
   getTask(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.todoService.getTask(id).subscribe(data => this.todo = data);
+    const id = +this.route.snapshot.paramMap.get("id");
+    this.todoService.getTask(id).subscribe(todo => this.todo = todo);
   }
 
   goBack(): void {
@@ -56,8 +55,8 @@ export class ToDoDetailComponent implements OnInit {
       .subscribe(departments => (this.departments = departments));
   }
 
-  getTasks() : void{
-    this.todoService.getTasks().subscribe(todos =>(this.todos = todos));
+  getTasks(): void {
+    this.todoService.getTasks().subscribe(todos => (this.todos = todos));
   }
 
   getEmployees(): void {
@@ -79,7 +78,7 @@ export class ToDoDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.todoService.updateTask(this.todo);
-    this.goBack();
+    this.todoService.updateTask(this.todo).subscribe();
+    console.log(this.todo);
   }
 }

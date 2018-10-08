@@ -53,9 +53,9 @@ export class ToDoComponent implements OnInit {
     this.service.getTasks().subscribe(data => this.todos = data);
   }
 
-  delete(task: Todo): void {
-    this.todos = this.todos.filter(t => t !== task);
-    this.service.deleteTask(task.idE).subscribe();
+  delete(todo: Todo): void {
+    this.todos = this.todos.filter(t => t !== todo);
+    this.service.deleteTask(todo.id).subscribe();
   }
 
   search(s: string): void{

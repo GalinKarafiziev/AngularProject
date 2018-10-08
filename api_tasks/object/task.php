@@ -167,12 +167,13 @@ function update(){
     $this->task=htmlspecialchars(strip_tags($this->task));
     $this->employee=htmlspecialchars(strip_tags($this->employee));
     $this->department=htmlspecialchars(strip_tags($this->department));
+    $this->id=htmlspecialchars(strip_tags($this->id));
  
     // bind new values
     $stmt->bindParam(':task', $this->task);
     $stmt->bindParam(':employee', $this->employee);
     $stmt->bindParam(':department', $this->department);
- 
+    $stmt->bindParam(':id', $this->id);
     // execute the query
     if($stmt->execute()){
         return true;

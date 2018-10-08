@@ -11,9 +11,9 @@
   </thead>
   <tr *ngFor="let todo of todos | taskfilter : searchTask" [class.selected]="todo === selectedTask" (click)="onSelect(todo)">
     <td>
-      <span (click)="showTask(todo.idE)">{{todo.idE}}</span>
+      <span (click)="showTask(todo.id)">{{todo.id}}</span>
     </td>
-    <td><span>{{todo.task}}</span>
+    <td><a class="link" routerLink="/taskdetail/{{todo.id}}"><span>{{todo.task}}</span></a>
     </td>
     <td><span (click)="show(todo.department)">{{todo.department}}</span>
     </td>
@@ -65,7 +65,7 @@
 </div>
 
 <div class= "task" *ngIf="todo">
-    <h4><label>Details of Task with ID: </label> {{todo.idE}}</h4>
+    <h4><label>Details of Task with ID: </label> {{todo.id}}</h4>
     <br>
     <label>Task: </label> {{todo.task}}
     <br>

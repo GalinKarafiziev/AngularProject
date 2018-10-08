@@ -50,7 +50,8 @@ export class AddTaskComponent implements OnInit {
     if (!employee) {
       return;
     }
-    this.todoService.addTask(task, department, employee);
+    this.todoService.addTask(task, department, employee).subscribe();
+    console.log(task, employee, department);
   }
   goBack(): void {
     this.location.back();

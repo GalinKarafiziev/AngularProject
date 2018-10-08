@@ -1,24 +1,23 @@
-<div class="form-group">
+<div class="det" *ngIf="todo">
   <div>
-    <h2>Update Task</h2>
-    <form>
+    <h2 ><span>{{todo.task}}</span> Details <div class="id"> <span >id: </span>{{todo.id}}</div></h2>
+    <div>
       <p>Task:
-        <select #task class="Form">
-          <option *ngFor="let todo of todos" value="{{todo.task}}">{{todo.task}}</option>
-        </select>
+        <input [(ngModel)] = "todo.task" placeholder="task" />
       </p>
       <p>Department:
-        <select #department class="Form">
+        <select [(ngModel)]="todo.department"  class="Form">
           <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
         </select>
       </p>
       <p>Employee:
-        <select #employee class="Form">
+        <select [(ngModel)]="todo.employee" class="Form">
           <option *ngFor="let employee of employees" value="{{employee.firstname}}">{{employee.firstname}}</option>
         </select>
       </p>
       <span>
-        <button class="btn btn-dark" (click)="goBack()" (click)="save()">Update</button>
+        <button class="btn btn-dark" (click)="goBack()" (click)="save();">Save</button>
       </span>
-    </form>
+
+    </div>
   </div>
