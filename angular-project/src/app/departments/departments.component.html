@@ -2,9 +2,17 @@
 <div  class="container">
 <h2> Departments </h2>
 <p class="info"> To update any of the departments you should click on the name of the department.</p>
-<div class="searchDep">
+
+<!--<div class="searchDep">
 <p class="search">Search a name of Department:</p>
 <input [(ngModel)]="searchDep" placeholder="Department name">
+</div> -->
+
+
+<div class="searchDep">
+  <input #dep onChange ="Search(this.value)">
+
+  <button class="searchbtn" (click)="Search(dep.value)">Search</button>
 </div>
 <table class="table">
   <thead class="thead-dark">

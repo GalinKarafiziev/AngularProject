@@ -29,4 +29,9 @@ export class DepartmentsComponent implements OnInit {
     this.departments = this.departments.filter(d => d !== department);
     this.departmentService.deleteDepartment(department.id).subscribe();
   }
+
+  Search(s:string): void {
+    this.departmentService.searchDeps(s).
+    subscribe(data => this.departments = data);
+  }
 }

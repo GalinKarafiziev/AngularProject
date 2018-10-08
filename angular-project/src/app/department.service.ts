@@ -60,6 +60,9 @@ private depSearch = 'http://i378011.hera.fhict.nl/api_department/department/sear
             "location": location},
             httpOptions);
     }
+    searchDeps(s: string):Observable<Department[]>{
+    return this.http.get<Department[]>(this.depSearch + s);
+    }
 
 
     deleteDepartment(id:number):Observable<Department>{
