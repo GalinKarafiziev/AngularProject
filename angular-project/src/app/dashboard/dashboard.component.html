@@ -9,7 +9,7 @@
 	<li>
 		<div class = "empinfo">
 			<p class="empnr"><span class="label">Numbers of Employees: </span>{{numberEmployees}} </p>
-			
+
 			<p> <span class="label">Number of female Employees:</span> {{female}}</p>
 			<p> <span class="label">Number of male Employees:</span> {{male}}</p>
 		</div>
@@ -28,14 +28,5 @@
 
 		</div>
 
-	</li>
-</ul>
-
-<div class="searchDep">
-<p class="search">Search a name of Department:</p>
-<input [(ngModel)]="searchDep" placeholder="Department name">
-</div>
-<ul *ngFor="let department of departments | depfilter : searchDep">
-	<li >{{ department.name}}
 	</li>
 </ul>
