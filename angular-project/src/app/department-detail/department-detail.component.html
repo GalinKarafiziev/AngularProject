@@ -26,12 +26,23 @@
  <button class="showDetails" (click) = "Show()">Show Employee Details</button>
  </div>
 
- <div *ngIf="emp">
+ <!--<div *ngIf="emp">
    <p *ngIf="emp" class="emp"> Employee id: {{ emp.id}} </p>
    <p *ngIf="emp" class="emp"> Employee name: {{emp.firstname}}   {{employee.lastname}}   </p>
   <p *ngIf="emp" class="emp"> Employee gender: {{emp.gender}} </p>
   <p *ngIf="emp" class="emp"> Employee age: {{emp.age}} </p>
    <button class="delete" (click) = "Delete()">Hide</button>
+ </div> -->
+
+ <div *ngFor="let emps of emp">
+   
+   <p   class="emp"> Employee id: {{ emps.id}} </p>
+   <p  class="emp"> Employee name: {{emps.firstname}}   {{emps.lastname}}   </p>
+   <p  class="emp"> Employee gender: {{emps.gender}} </p>
+   <p  class="emp"> Employee age: {{emps.age}} </p>
+
+
+    <button class="delete" (click) = "Delete()">Hide</button>
  </div>
 
 

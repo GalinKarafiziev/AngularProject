@@ -15,7 +15,7 @@ export class DepartmentDetailComponent implements OnInit {
 
   department : Department ;
   employees: Employee[];
-  emp: Employee;
+  emp: Employee[];
   average:number=1;
 
 
@@ -27,11 +27,7 @@ export class DepartmentDetailComponent implements OnInit {
     this.getDepartment();
   }
 
-  getEmp(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.employeeService.getEmp(id).
-    subscribe(data => this.emp = data);
-  }
+
 
   getDepartment(): void{
     const id = +this.route.snapshot.paramMap.get('id');
@@ -50,18 +46,29 @@ export class DepartmentDetailComponent implements OnInit {
     this.employeeService.getEmps().
     subscribe(employees => this.employees = employees);
   }
-  Select(firstname:string){
-   if(!firstname){ return; }
-firstname = firstname.trim();
-   this.employeeService.getEmployeeByName(firstname).subscribe(e => this.emp= e);
- }
+  //Select(firstname:string){
+//   if(!firstname){ return; }
+//firstname = firstname.trim();
+//   this.employeeService.getEmployeeByName(firstname).subscribe(e => this.emp= e);
+// }
+getEmp(firstname: string): void {
+  this.employeeService.getEmps().
+  subscribe(employees => {
+    if (employees) {
+      this.employees = employees;
+      this.emp = employees.filter(emp => emp.firstname == firstname);
+      console.log(this.emp);
+    }
+  });
+  this.average = null;
+}
 
   Delete():void{
     this.emp = null;
     this.average = 1;
   }
   Show():void{
-    this.Select(this.department.employee);
+    this.getEmp(this.department.employee);
     this.average = null;
   }
 }

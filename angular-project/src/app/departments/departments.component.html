@@ -10,9 +10,10 @@
 
 
 <div class="searchDep">
-  <input #dep onChange ="Search(this.value)">
 
-  <button class="searchbtn" (click)="Search(dep.value)">Search</button>
+  <input #dep (keyup) ="Search(dep.value)" placeholder="Search">
+
+<!--  <button class="searchbtn" (click)="Search(dep.value)">Search</button> -->
 </div>
 <table class="table">
   <thead class="thead-dark">
