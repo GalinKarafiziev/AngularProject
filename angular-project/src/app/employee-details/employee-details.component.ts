@@ -16,7 +16,7 @@ import { DepartmentService } from '../department.service';
 export class EmployeeDetailsComponent implements OnInit {
   employee : Employee ;
   departments: Department[];
-  dep: Department;
+  dep: Department[];
   a:number = 1;
 
   constructor(private route: ActivatedRoute, private employeeService: EmployeeService, private location: Location, private departmentService: DepartmentService) { }
@@ -42,24 +42,27 @@ export class EmployeeDetailsComponent implements OnInit {
     this.location.back();
   }
   save(): void {
-   this.employeeService.putEmps(this.employee).subscribe();
-   this.goBack();
- }
+    this.employeeService.putEmps(this.employee).subscribe();
+    this.goBack();
+  }
   getDepartments(): void {
     this.departmentService.getDepartments().
     subscribe(departments => this.departments = departments);
-  }
-  Select(name:string){
-    name = name.trim();
-    if(!name){return;}
-    this.departmentService.getDepByName(name).subscribe(Department => this.dep = Department);
   }
   Delete():void{
     this.dep = null;
     this.a = 1;
   }
-  Show():void{
-    this.Select(this.employee.department);
+  getDep(name: string): void {
+    this.departmentService.getDepartments().
+    subscribe(departments => {
+      if (departments) {
+        this.departments = departments;
+        this.dep = departments.filter(dep => dep.name == name);
+        console.log(this.dep);
+      }
+    });
     this.a = null;
   }
+
 }

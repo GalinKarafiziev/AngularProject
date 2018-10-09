@@ -20,7 +20,6 @@ export class DepartmentService {
 
 
     constructor(private http: HttpClient) { }
-    dep : Department[] = Departments;
 private depRead = 'http://i378011.hera.fhict.nl/api_department/department/read.php';
 private depReadOne = 'http://i378011.hera.fhict.nl/api_department/department/read_one.php?id=';
 private depCreate = 'http://i378011.hera.fhict.nl/api_department/department/create.php';
@@ -40,15 +39,6 @@ private depSearch = 'http://i378011.hera.fhict.nl/api_department/department/sear
     //	return of (this.dep.find(department => department.id === id));
       return this.http.get<Department>(this.depReadOne + id);
     }
-
-    getDepByName(name:string) : Observable<Department>{
-      return of (this.dep.find(department => department.name === name))
-    }
-
-    getDepartmentName(name: string): Observable<Department>{
-      return of(this.dep.find(department => department.name === name));
-    }
-
     updateDepartment(dep: Department):Observable<any>{
 
     	  return this.http.post(this.depUpdate,dep,httpOptions);

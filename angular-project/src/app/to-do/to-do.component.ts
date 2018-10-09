@@ -74,15 +74,6 @@ export class ToDoComponent implements OnInit {
       .subscribe(employees => (this.employees = employees));
   }
 
-  selectDepartment(name: string) {
-    var context = this;
-    this.departmentService.getDepByName(name).subscribe(function(dep) {
-      context.depart = dep;
-      console.log(dep);
-      console.log(name);
-    });
-  }
-
   selectTask(id: number) {
     var context = this;
     this.service.getTask(id).subscribe(function(todo) {
@@ -96,9 +87,6 @@ export class ToDoComponent implements OnInit {
     this.selectTask(id);
   }
 
-  show(name: string): void {
-    this.selectDepartment(name);
-  }
 
   selectEmployee(name: string) {
     var context = this;

@@ -27,7 +27,7 @@
       </p>
       <br>
       <p>Department:
-        <select [(ngModel)]="employee.department"  class="Form">
+        <select #deps [(ngModel)]="employee.department"  class="Form">
           <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
         </select>
       </p>
@@ -35,11 +35,11 @@
     </div>
 
     <div *ngIf="a">
-      <button class="showDetails" (click) = "Show()">Show Department Details</button>
+      <button class="showDetails" (click) = "getDep(deps.value)">Show Department Details</button>
     </div>
 
-    <div *ngIf="dep">
-      <p *ngIf="dep" class="dep"> Department name: {{dep.name}} // Department location: {{dep.location}} </p> <button class="delete" (click) = "Delete()">Hide</button>
+    <div *ngFor="let deps of dep">
+      <p  class="dep"> Department name: {{deps.name}} // Department location: {{deps.location}} </p> <button class="delete" (click) = "Delete()">Hide</button>
     </div>
 
     <span class = "backbtn">

@@ -64,19 +64,6 @@ export class ToDoDetailComponent implements OnInit {
       .getEmps()
       .subscribe(employees => (this.employees = employees));
   }
-  selectDepartment(name: string) {
-    var context = this;
-    this.departmentService.getDepByName(name).subscribe(function(dep) {
-      context.depart = dep;
-      console.log(dep);
-      console.log(name);
-    });
-  }
-
-  show(name: string): void {
-    this.selectDepartment(name);
-  }
-
   save(): void {
     this.todoService.updateTask(this.todo).subscribe();
     console.log(this.todo);
