@@ -20,15 +20,15 @@ th, td {
     font-size: 15px;
     text-align: center;
 }
-.addemployee{
+.adddepartment{
 	text-decoration: none;
 	padding: 5px;
 	font-size: 16px;
-	background-color: black;
-	border-radius: 5px;
+	background-color: grey;
+	border-radius: 10px;
 	color: white;
-	float: right;
-	margin-right: 95px;
+
+	margin-right: 500px;
 }
 .delete{
 	border-radius: 10px;
@@ -47,7 +47,7 @@ th, td {
 	margin-left: 100px;
 }
 .adddepartment{
-	color:black;
+
 	border-radius:30px;
 
 

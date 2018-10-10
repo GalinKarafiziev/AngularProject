@@ -5,7 +5,7 @@
   <h2 ><span class="name">{{department.name }} {{department.location}}</span>  Details </h2>
 
       <div class="container">
-<div> <span >id: </span>{{department.id}}</div>
+<div class="posit"> <span >Id: </span>{{department.id}}</div>
          <p>Department name:
            <input [(ngModel)]="department.name" placeholder="name" class="Form"/>
           </p>
@@ -35,7 +35,7 @@
  </div> -->
 
  <div *ngFor="let emps of emp">
-   
+
    <p   class="emp"> Employee id: {{ emps.id}} </p>
    <p  class="emp"> Employee name: {{emps.firstname}}   {{emps.lastname}}   </p>
    <p  class="emp"> Employee gender: {{emps.gender}} </p>
