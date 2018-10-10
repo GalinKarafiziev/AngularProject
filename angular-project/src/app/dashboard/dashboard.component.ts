@@ -66,6 +66,15 @@ export class DashboardComponent implements OnInit {
         }
     });
 }
+ getNrTasks(): void {
+    this.todoServices.getTasks().
+    subscribe(tasks => {
+        if (tasks) {
+            this.tasks = tasks;
+            this.numberTasks = tasks.length;
+          }
+    });
+}
 
 //  getDepEindhoven(loc:number):void{
 //    this.departmentService.getDepartments().
@@ -100,8 +109,4 @@ export class DashboardComponent implements OnInit {
       }
     });
 }
-
-  getNrTasks():void{
-    this.numberTasks = this.tasks.length;
-  }
 }
