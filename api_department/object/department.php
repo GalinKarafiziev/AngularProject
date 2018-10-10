@@ -74,7 +74,7 @@ function create(){
         (name,location)    values (
                 :name,:location)";
 
-                echo $query;
+              
 
     // prepare query
     $stmt = $this->conn->prepare($query);
