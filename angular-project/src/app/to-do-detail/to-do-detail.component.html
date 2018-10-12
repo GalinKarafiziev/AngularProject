@@ -1,22 +1,50 @@
-<div class="det" *ngIf="todo">
+<div class="main">
+<div class="details" *ngIf="todo">
   <div>
-    <h2 ><span>{{todo.task}}</span> Details <div class="id"> <span >id: </span>{{todo.id}}</div></h2>
-    <div>
+    <h2 ><span class="name">{{todo.task}}</span> Details <div class="id"> <span >id: </span>{{todo.id}}</div></h2>
+    <div class="container">
       <p>Task:
-        <input [(ngModel)] = "todo.task" placeholder="task" />
+        <input [(ngModel)] = "todo.task" placeholder="task" class="Form" />
       </p>
       <p>Department:
-        <select [(ngModel)]="todo.department"  class="Form">
-          <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
+        <select #deps [(ngModel)]="todo.department"  class="Form">
+          <option *ngFor="let department of departments" value="{{department.name}}" class="Form">{{department.name}}</option>
         </select>
       </p>
       <p>Employee:
-        <select [(ngModel)]="todo.employee" class="Form">
-          <option *ngFor="let employee of employees" value="{{employee.firstname}}">{{employee.firstname}}</option>
+        <select #emps [(ngModel)]="todo.employee" class="Form">
+          <option *ngFor="let employee of employees" value="{{employee.firstname}}" class="Form">{{employee.firstname}}</option>
         </select>
       </p>
-      <span>
-        <button class="btn btn-dark" (click)="goBack()" (click)="save();">Save</button>
+      <br>
+      </div>
+      <div *ngIf="a">
+          <button class="showDetails" (click) = "getDep(deps.value)">Show Department Details</button>
+        </div>
+      <div *ngFor="let deps of dep">
+          <p  class="dep"> Department name: {{deps.id}} </p>
+          <p  class="dep"> Department name: {{deps.name}} </p>
+          <p  class="dep"> Department location: {{deps.location}} </p>
+          <button class="delete" (click) = "deleteDepartment()">Hide</button>
+        </div>
+      </div>
+      <div *ngIf="a">
+          <button class="showDetails" (click) = "getEmp(emps.value)">Show Employee Details</button>
+        </div>
+      <div *ngFor="let emps of emp">
+          <p  class="emp"> Employee ID: {{emps.id}} </p>
+          <p  class="emp"> Employee Name: {{emps.firstname}} </p>
+          <p  class="emp"> Employee Surname: {{emps.lastname}} </p>
+          <p  class="emp"> Employee gender: {{emps.gender}} </p>
+          <p  class="emp"> Employee Age: {{emps.age}} </p>
+          <button class="delete" (click) = "Delete()">Hide</button>
+        </div>
+
+      <span class = "backbtn">
+        <button class="btn" (click)="goBack()">Back</button>
+      </span>
+      <span class = "addbtn">
+        <button class="btn" (click)="save();">Save</button>
       </span>
 
     </div>

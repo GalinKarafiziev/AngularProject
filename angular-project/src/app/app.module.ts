@@ -2,8 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -35,6 +37,7 @@ import { HttpModule } from '@angular/http';
     HttpClientModule,
 
   ],
+
   declarations: [
     EmployeesComponent,
     AppComponent,
@@ -49,6 +52,7 @@ import { HttpModule } from '@angular/http';
     AddTaskComponent,
     DepFilterPipe,
     TaskFilterPipe,
+
 
 
 

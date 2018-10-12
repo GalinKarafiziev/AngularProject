@@ -58,14 +58,14 @@ export class AddTaskComponent implements OnInit {
   }
 
   getDepartments(): void {
-    this.departmentService
+  this.departmentService
       .getDepartments()
       .subscribe(departments => (this.departments = departments));
   }
 
   getEmployees(): void {
-    this.employeeService
-      .getEmps()
-      .subscribe(employees => (this.employees = employees));
+  this.employeeService
+   .getEmps()
+  .subscribe(employees => (this.employees = employees));
   }
 }

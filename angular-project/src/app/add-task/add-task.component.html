@@ -6,9 +6,10 @@
         <input #task class="Form" type="text" name="task" required>
       </p>
       <p>Department:
-        <select #department class="Form">
-          <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
-        </select>
+        <select #department class="Form"> -->
+          <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option> -->
+
+          </select>
       </p>
       <p>Employee:
         <select #employee class="Form">
@@ -16,8 +17,9 @@
         </select>
       </p>
       <span>
-        <button class="btn btn-dark" (click)="goBack()" (click)="add(task.value,department.value, employee.value);">Add</button>
+        <button class="btn btn-dark" (click)="goBack()" (click)="add(task.value,department.value, employee.value); task.value =''; department.value='';employee.value = '';">Add</button>
       </span>
 
     </form>
   </div>
+

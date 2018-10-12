@@ -6,7 +6,7 @@ import { Headers, RequestOptions } from '@angular/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-  'Content-Type':  'application/json',
+  'Content-Type':  'text/plain',
   'Authorization': 'my-auth-token'
  })
 };
@@ -24,11 +24,11 @@ export class TodoService
 
   }
   todoTasks: Todo[] = [];
-  private taskReadOne = 'http://i380935.hera.fhict.nl/task/read_one.php?id=';
-  private taskRead = 'http://i380935.hera.fhict.nl/task/read.php';
-  private taskAdd = 'http://i380935.hera.fhict.nl/task/create.php';
+  private taskReadOne = 'http://i380447.hera.fhict.nl/api_tasks/task/read_one.php?id=';
+  private taskRead = 'http://i380447.hera.fhict.nl/api_tasks/task/read.php';
+  private taskAdd = 'http://i380447.hera.fhict.nl/api_tasks/task/create.php';
   private taskUpdate = 'http://i380935.hera.fhict.nl/task/update.php';
-  private taskSearch = 'http://i380935.hera.fhict.nl/task/search.php?s=';
+  private taskSearch = 'http://i380447.hera.fhict.nl/api_tasks/task/search.php?s=';
   private taskDelete = 'http://i380935.hera.fhict.nl/task/delete.php?id=';
 
 

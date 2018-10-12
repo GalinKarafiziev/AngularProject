@@ -26,6 +26,11 @@ export class ToDoDetailComponent implements OnInit {
   employee: Employee;
   task: any;
   todos: Todo[];
+
+  dep: Department[];
+  a:number = 1;
+  emp: Employee[];
+  average:number=1;
   constructor(
     private route: ActivatedRoute,
     private todoService: TodoService,
@@ -68,4 +73,41 @@ export class ToDoDetailComponent implements OnInit {
     this.todoService.updateTask(this.todo).subscribe();
     console.log(this.todo);
   }
+
+  getEmp(firstname: string): void {
+    this.employeeService.getEmps().
+    subscribe(employees => {
+      if (employees) {
+        this.employees = employees;
+        this.emp = employees.filter(emp => emp.firstname == firstname);
+        console.log(this.emp);
+      }
+    });
+    this.average = null;
+  }
+
+    Delete():void{
+      this.emp = null;
+      this.average = 1;
+    }
+    Show():void{
+      this.getEmp(this.todo.employee);
+      this.average = null;
+    }
+
+    deleteDepartment():void{
+      this.dep = null;
+      this.a = 1;
+    }
+    getDep(name: string): void {
+      this.departmentService.getDepartments().
+      subscribe(departments => {
+        if (departments) {
+          this.departments = departments;
+          this.dep = departments.filter(dep => dep.name == name);
+          console.log(this.dep);
+        }
+      });
+      this.a = null;
+    }
 }

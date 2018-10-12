@@ -21,6 +21,7 @@ export class ToDoComponent implements OnInit {
   selectedTask: Todo;
   empServ: EmployeeService;
   employees: Employee[];
+  emp: Employee[];
   departments: Department[];
   depart: Department;
   todo: Todo;
@@ -86,19 +87,20 @@ export class ToDoComponent implements OnInit {
   showTask(id: number){
     this.selectTask(id);
   }
-
-
-  selectEmployee(name: string) {
-    var context = this;
-    this.employeeService.getEmployeeByName(name).subscribe(function(emp) {
-      context.employee = emp;
-      console.log(emp);
-      console.log(name);
+  getEmp(firstname: string): void {
+    this.employeeService.getEmps().
+    subscribe(employees => {
+      if (employees) {
+        this.employees = employees;
+        this.emp = employees.filter(emp => emp.firstname == firstname);
+        console.log(this.emp);
+      }
     });
+
   }
 
   showEmployee(name: string): void{
-    this.selectEmployee(name);
+    this.getEmp(name);
   }
 
 
